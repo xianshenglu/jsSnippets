@@ -18,6 +18,13 @@ let arr = str
 arr.filter(v => v.length === Math.max(...arr.map(v => v.length)))
 ```
 
+- Pseudorandom
+
+```js
+let arr = [1, 2, 3, 4, 5]
+arr.sort(v => Math.random() - 0.5)
+```
+
 ## Hint
 
 - Before you add some code **please make sure that is the best code you can find**. And we may try to talk about it if there is any solutions better before adding.
