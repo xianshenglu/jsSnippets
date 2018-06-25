@@ -25,6 +25,16 @@ let arr = [1, 2, 3, 4, 5]
 arr.sort(v => Math.random() - 0.5)
 ```
 
+- Get the last item from Array
+
+```js
+let arr = [1, 2, 3, 4, 5]
+let lastItem
+lastItem = arr.slice().pop()
+// if you don't care about the arr because pop() will modify arr
+lastItem = arr.pop()
+```
+
 ## Hint
 
 - Before you add some code **please make sure that is the best code you can find**. And we may try to talk about it if there is any solutions better before adding.
