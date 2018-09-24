@@ -62,6 +62,61 @@ arr.length = 0
 arr.splice(0, arr.length)
 ```
 
+- `toFixed` without last `0`
+
+```js
+function toFixed(num, precise) {
+  let number = Number(num)
+  if (Number.isInteger(number)) {
+    return number
+  }
+  return number.toFixed(precise).replace(/0+$/, '')
+}
+```
+
+- `closest` with destination
+
+```js
+function closest(el, selector, destination = document.documentElement) {
+  const matchesSelector =
+    el.matches ||
+    el.webkitMatchesSelector ||
+    el.mozMatchesSelector ||
+    el.msMatchesSelector
+
+  while (el && el !== destination) {
+    if (matchesSelector.call(el, selector)) {
+      return el
+    } else {
+      el = el.parentElement
+    }
+  }
+  return null
+}
+```
+
+- DOM selector `$`
+
+```js
+function $(selector, parentNode = document) {
+  return Array.from(parentNode.querySelectorAll(selector))
+}
+```
+
+- get element relative position offset to event
+
+```js
+function getElOffsetToEvent(event, el) {
+  let boundingClientRect = el.getBoundingClientRect()
+  return {
+    left: event.clientX - boundingClientRect.left,
+    top: event.clientY - boundingClientRect.top,
+    right: boundingClientRect.right - event.clientX,
+    bottom: boundingClientRect.bottom - event.clientY
+  }
+}
+```
+
 ## Hint
 
 - Before you add some code **please make sure that is the best code you can find**. And we may try to talk about it if there is any solutions better before adding.
