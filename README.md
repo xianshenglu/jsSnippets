@@ -117,6 +117,24 @@ function getElOffsetToEvent(event, el) {
 }
 ```
 
+- camel to hyphen
+
+```js
+function camelToHyphen(str) {
+  return str.replace(/([A-Z])/g, '-$1').toLowerCase()
+}
+camelToHyphen('camelToHyphen') //"camel-to-hyphen"
+```
+
+- hyphen to camel
+
+```js
+function hyphenToCamel(str) {
+  return str.replace(/-(\w)/g, (all, letter) => letter.toUpperCase())
+}
+hyphenToCamel('hyphen-to-camel') //"hyphenToCamel"
+```
+
 ## Hint
 
 - Before you add some code **please make sure that is the best code you can find**. And we may try to talk about it if there is any solutions better before adding.
