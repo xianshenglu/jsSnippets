@@ -58,6 +58,7 @@ tryJsonParse('{"s":"a"}') // {s: "a"}
 ```js
 let arr = [1, 2, 3]
 arr.length = 0
+//or
 arr.splice(0, arr.length)
 ```
 
