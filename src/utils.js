@@ -1,34 +1,3 @@
-# xsl-js-utils
-
-## Target
-
-js utils for daily use.
-
-## Usage
-
-- Copy the function you need ( may contain code using es2015+ ).
-
-Or
-
-- Download _dist/main.js_ which is compiled by babel and transformed by @babel/polyfill.
-
-Or
-
-- Using npm
-
-```bash
-npm i -S xsl-js-utils
-```
-
-After that, you can use `utils`.
-
-```js
-console.log(utils)
-console.log(window.utils)
-```
-## Code
-
-```js
 let utils = {
   //* Find the letter with the most repetitions.
   // findMostOrLeastRepeatStr('sfdaffaadaafafsfed')// ["aaaaaa", "ffffff"]
@@ -131,10 +100,3 @@ let utils = {
 }
 window.utils = utils
 export default utils
-
-```
-## Hint
-
-- Before you add some code **please make sure that is the best code you can find**. And we may try to talk about it if there is any solutions better before adding.
-
-- If you have any solutions better for any code which has been added please let me know and I would appreciate it.
