@@ -1,6 +1,11 @@
-//* Find the letter with the most repetitions.
-// sortCharacters('sfdaffaadaafafsfed')// ["aaaaaa", "ffffff"]
-// sortCharacters('sfdaffaadaafafsfedg', false)// ["g", "e"]
+/**
+ * put the repetitive letter together
+ *
+ * @param {String} str string needs to sort
+ * @returns {Array}
+ * @example
+ * sortCharacters('sfdaffaadaafafsfed') //
+ */
 function sortCharacters (str) {
   if (typeof str !== 'string') {
     return null
@@ -15,19 +20,27 @@ function sortCharacters (str) {
     .match(/(.)\1*/gu)
 }
 
-//* Pseudorandom
+/**
+ * sort array randomly
+ *
+ * @param {Array} arr
+ * @returns {Array} another random array
+ * @example
+ * getPseudorandom([1,2,3,4]) // [....]
+ */
 function getPseudorandom (arr) {
   return arr.sort(v => Math.random() - 0.5)
 }
 
-//* Get the last item from Array
-// getLastItemInArr([1, 2, 3, 4, 5]) // 5
-function getLastItemInArr (arr) {
-  return arr.slice().pop()
-}
-
-//* `toFixed` without last`0`
-// toFixed(12.230, 4)// "12.23"
+/**
+ * delete the last `0` when a number calls toFixed
+ *
+ * @param {Number} num
+ * @param {Number} precise
+ * @returns {String}
+ * @example
+ * toFixed(12.230, 4) //"12.23"
+ */
 function toFixed (num, precise) {
   let number = Number(num)
   if (Number.isInteger(number)) {
@@ -36,48 +49,26 @@ function toFixed (num, precise) {
   return number.toFixed(precise).replace(/0+$/, '')
 }
 
-//* `closest` with destination
-function closest (el, selector, destination = document.documentElement) {
-  const matchesSelector =
-    el.matches ||
-    el.webkitMatchesSelector ||
-    el.mozMatchesSelector ||
-    el.msMatchesSelector
-
-  while (el && el !== destination) {
-    if (matchesSelector.call(el, selector)) {
-      return el
-    } else {
-      el = el.parentElement
-    }
-  }
-  return null
-}
-
-//* DOM selector`$`
-function $ (selector, parentNode = document) {
-  return Array.from(parentNode.querySelectorAll(selector))
-}
-
-//* get element relative position offset to event
-function getElOffsetToEvent (event, el) {
-  let boundingClientRect = el.getBoundingClientRect()
-  return {
-    left: event.clientX - boundingClientRect.left,
-    top: event.clientY - boundingClientRect.top,
-    right: boundingClientRect.right - event.clientX,
-    bottom: boundingClientRect.bottom - event.clientY
-  }
-}
-
-//* camel to hyphen
-// camelToHyphen('camelToHyphen') // "camel-to-hyphen"
+/**
+ * camel to hyphen
+ *
+ * @param {String} str
+ * @returns {String}
+ * @example
+ * camelToHyphen('camelToHyphen') // "camel-to-hyphen"
+ */
 function camelToHyphen (str) {
   return str.replace(/([A-Z])/g, '-$1').toLowerCase()
 }
 
-//* hyphen to camel
-// hyphenToCamel('hyphen-to-camel') // "hyphenToCamel"
+/**
+ * hyphen to camel
+ *
+ * @param {String} str
+ * @returns {String}
+ * @example
+ * hyphenToCamel('hyphen-to-camel') // "hyphenToCamel"
+ */
 function hyphenToCamel (str) {
   return str.replace(/-(\w)/g, (all, letter) => letter.toUpperCase())
 }
