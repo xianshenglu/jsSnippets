@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1544880494881" clover="3.2.0">
+  <project timestamp="1544880494882" name="All files">
+    <metrics statements="24" coveredstatements="7" conditionals="16" coveredconditionals="4" methods="3" coveredmethods="1" elements="43" coveredelements="12" complexity="0" loc="24" ncloc="24" packages="1" files="2" classes="2">
+      <file name="domUtils.js" path="D:\Demo\github\jsSnippets\src\domUtils.js">
+        <metrics statements="10" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="24" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="29" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="30" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+      </file>
+      <file name="utils.js" path="D:\Demo\github\jsSnippets\src\utils.js">
+        <metrics statements="14" coveredstatements="7" conditionals="6" coveredconditionals="4" methods="3" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="11" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="22" count="8" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="48" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
+      </file>
+    </metrics>
+  </project>
+</coverage>
