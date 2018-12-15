@@ -1,7 +1,7 @@
 {
-  "name": "xsl-js-utils",
+  "name": "js-snippets",
   "version": "1.0.0",
-  "description": "js utils for daily use",
+  "description": "jsSnippets",
   "main": "index.js",
   "scripts": {
     "start": "webpack --config webpack.config.js",
@@ -23,18 +23,8 @@
   },
   "homepage": "https://github.com/xianshenglu/jsSnippets#readme",
   "devDependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/preset-env": "^7.1.0",
-    "babel-loader": "^8.0.4",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2"
   },
-  "dependencies": {
-    "@babel/polyfill": "^7.0.0"
-  },
-  "browserslist": [
-    "last 2 versions",
-    "> 1%",
-    "not ie <= 9"
-  ]
+  "dependencies": {}
 }
