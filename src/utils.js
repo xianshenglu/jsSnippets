@@ -9,7 +9,7 @@ module.exports = {
    */
   sortCharacters(str) {
     if (typeof str !== 'string') {
-      throw new Error('params would be string!')
+      throw new Error('input should be String!')
     }
     if (str === '') {
       return ['']
@@ -31,7 +31,7 @@ module.exports = {
    * getPseudorandom([1,2,3,4,5,6]) //not equal [1,2,3,4,5,6]
    */
   getPseudorandom(arr) {
-    return arr.sort(v => Math.random() - 0.5)
+    return arr.sort(() => Math.random() - 0.5)
   },
 
   /**
