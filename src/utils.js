@@ -1,9 +1,11 @@
+/**
+ * @module utils
+ */
 module.exports = {
   /**
-   * put the repetitive letter together
-   *
+   * @description put the repetitive letter together
    * @param {String} str string needs to sort
-   * @returns {Array} or str
+   * @returns {Array|String}
    * @example
    * sortCharacters('sfdaffaadaafafsfed') // ["e", "ss", "ddd", "aaaaaa", "ffffff"]
    */
@@ -23,10 +25,9 @@ module.exports = {
   },
 
   /**
-   * sort array randomly
-   *
+   * @description sort array randomly
    * @param {Array} arr
-   * @returns {Array} another random array
+   * @returns {Array} array randomly sorted
    * @example
    * getPseudorandom([1,2,3,4,5,6]) //not equal [1,2,3,4,5,6]
    */
@@ -35,8 +36,7 @@ module.exports = {
   },
 
   /**
-   * delete the last `0` when a number calls toFixed
-   *
+   * @description delete the last `0` when a number calls toFixed
    * @param {Number} num
    * @param {Number} precise
    * @returns {String}
@@ -51,8 +51,7 @@ module.exports = {
   },
 
   /**
-   * camel to hyphen
-   *
+   * @description camel to hyphen
    * @param {String} str
    * @returns {String}
    * @example
@@ -66,8 +65,7 @@ module.exports = {
   },
 
   /**
-   * hyphen to camel
-   *
+   * @description hyphen to camel
    * @param {String} str
    * @returns {String}
    * @example

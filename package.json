@@ -4,7 +4,8 @@
   "description": "jsSnippets",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "jsdoc2md": "jsdoc2md.render({files:'src/utils.js'}).then(res=>fs.writeFile('utils.md',res,{},function(){})"
   },
   "repository": {
     "type": "git",

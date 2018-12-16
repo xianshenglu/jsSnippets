@@ -1,23 +1,21 @@
+/**
+ * @module domUtils
+ */
 module.exports = {
   /**
-   * imitate DOM selector`$` in jQuery
-   *
+   * @description imitate DOM selector`$` in jQuery
    * @param {String} selector
    * @param {Node} [parentNode=document]
    * @returns {Array} array with target nodes
-   * @example
    */
   $(selector, parentNode = document) {
     return Array.from(parentNode.querySelectorAll(selector))
   },
-
   /**
-   * get element relative position offset to event
-   *
+   * @description get element relative position offset to event
    * @param {Event} event
    * @param {HTMLElement} el
-   * @returns {Object} {left:{Number},top:{Number},right:{Number},bottom:{Number}}
-   * @example
+   * @returns {Object} {left:Number,right:Number,top:Number,bottom:Number}
    */
   getElOffsetToEvent(event, el) {
     let boundingClientRect = el.getBoundingClientRect()
