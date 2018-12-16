@@ -6,6 +6,7 @@
     "node": true
   },
   "root": true,
+  "extends": "eslint:recommended",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -14,7 +15,8 @@
   },
   "globals": {
     "test": false,
-    "expect": false
+    "expect": false,
+    "describe": false
   },
   "rules": {
     "indent": ["error", 2],
