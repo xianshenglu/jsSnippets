@@ -7,7 +7,7 @@ module.exports = {
    * @example
    * sortCharacters('sfdaffaadaafafsfed') // ["e", "ss", "ddd", "aaaaaa", "ffffff"]
    */
-  sortCharacters (str) {
+  sortCharacters(str) {
     if (typeof str !== 'string') {
       throw new Error('params would be string!')
     }
@@ -28,9 +28,9 @@ module.exports = {
    * @param {Array} arr
    * @returns {Array} another random array
    * @example
-   * getPseudorandom([1,2,3,4]) // [....]
+   * getPseudorandom([1,2,3,4,5,6]) //not equal [1,2,3,4,5,6]
    */
-  getPseudorandom (arr) {
+  getPseudorandom(arr) {
     return arr.sort(v => Math.random() - 0.5)
   },
 
@@ -41,14 +41,13 @@ module.exports = {
    * @param {Number} precise
    * @returns {String}
    * @example
-   * toFixed(12.230, 4) //"12.23"
+   * toFixedNoLast0(12.230, 4) //"12.23"
    */
-  toFixed (num, precise) {
-    let number = Number(num)
-    if (Number.isInteger(number)) {
-      return number
+  toFixedNoLast0(number, precise) {
+    if (typeof number !== 'number') {
+      throw new Error('input should be Number!')
     }
-    return number.toFixed(precise).replace(/0+$/, '')
+    return number.toFixed(precise).replace(/\.?0+$/, '')
   },
 
   /**
@@ -59,7 +58,10 @@ module.exports = {
    * @example
    * camelToHyphen('camelToHyphen') // "camel-to-hyphen"
    */
-  camelToHyphen (str) {
+  camelToHyphen(str) {
+    if (typeof str !== 'string') {
+      throw new Error('input should be String')
+    }
     return str.replace(/([A-Z])/g, '-$1').toLowerCase()
   },
 
@@ -71,7 +73,10 @@ module.exports = {
    * @example
    * hyphenToCamel('hyphen-to-camel') // "hyphenToCamel"
    */
-  hyphenToCamel (str) {
+  hyphenToCamel(str) {
+    if (typeof str !== 'string') {
+      throw new Error('input should be String')
+    }
     return str.replace(/-(\w)/g, (all, letter) => letter.toUpperCase())
   }
 }
