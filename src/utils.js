@@ -5,7 +5,7 @@ module.exports = {
   /**
    * @description put the repetitive letter together
    * @param {String} str string needs to sort
-   * @returns {Array|String}
+   * @returns {Array}
    * @example
    * sortCharacters('sfdaffaadaafafsfed') // ["e", "ss", "ddd", "aaaaaa", "ffffff"]
    */

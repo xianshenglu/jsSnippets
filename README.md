@@ -4,6 +4,6 @@
 
 ## Code
 
-### [utils](./utils.md)
+### [utils](./spec/utils.md)
 
-### [domUtils](./domUtils.md)
+### [domUtils](./spec/domUtils.md)
