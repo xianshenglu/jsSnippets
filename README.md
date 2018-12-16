@@ -1,6 +1,6 @@
 # jsSnippets
 
-![](https://img.shields.io/badge/coverage-65.52-yellow.svg)
+![](https://img.shields.io/badge/coverage-100-green.svg)
 
 ## Code
 

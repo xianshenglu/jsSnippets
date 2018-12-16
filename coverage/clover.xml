@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1544928437652" clover="3.2.0">
-  <project timestamp="1544928437652" name="All files">
-    <metrics statements="27" coveredstatements="17" conditionals="20" coveredconditionals="10" methods="3" coveredmethods="3" elements="50" coveredelements="30" complexity="0" loc="27" ncloc="27" packages="1" files="2" classes="2">
+<coverage generated="1544944492954" clover="3.2.0">
+  <project timestamp="1544944492955" name="All files">
+    <metrics statements="21" coveredstatements="21" conditionals="11" coveredconditionals="11" methods="3" coveredmethods="3" elements="35" coveredelements="35" complexity="0" loc="21" ncloc="21" packages="1" files="2" classes="2">
       <file name="domUtils.js" path="D:\Demo\github\jsSnippets\src\domUtils.js">
-        <metrics statements="10" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="24" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="29" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="30" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
+        <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="1" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
       </file>
       <file name="utils.js" path="D:\Demo\github\jsSnippets\src\utils.js">
         <metrics statements="17" coveredstatements="17" conditionals="10" coveredconditionals="10" methods="3" coveredmethods="3"/>
@@ -24,7 +18,7 @@
         <line num="15" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
         <line num="22" count="8" type="stmt"/>
-        <line num="34" count="8" type="stmt"/>
+        <line num="34" count="10" type="stmt"/>
         <line num="47" count="4" type="cond" truecount="2" falsecount="0"/>
         <line num="48" count="1" type="stmt"/>
         <line num="50" count="3" type="stmt"/>
