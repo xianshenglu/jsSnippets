@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">26.67% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>4/15</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">12.5% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>1/8</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,13 +35,13 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">26.67% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>4/15</span>
       </div>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -74,9 +74,29 @@
 29
 30
 31
-32</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -93,9 +113,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -105,26 +122,45 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">module.exports = {
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * @module domUtils
+ */
+module.exports = {
   /**
-   * imitate DOM selector`$` in jQuery
-   *
+   * @description imitate DOM selector`$` in jQuery
    * @param {String} selector
    * @param {Node} [parentNode=document]
    * @returns {Array} array with target nodes
-   * @example
    */
   $(selector, parentNode = document) {
     return Array.from(parentNode.querySelectorAll(selector))
   },
-&nbsp;
   /**
-   * get element relative position offset to event
-   *
+   * @description get element relative position offset to event
    * @param {Event} event
    * @param {HTMLElement} el
-   * @returns {Object} {left:{Number},top:{Number},right:{Number},bottom:{Number}}
-   * @example
+   * @returns {Object} {left:Number,right:Number,top:Number,bottom:Number}
    */
   getElOffsetToEvent(event, el) {
     let boundingClientRect = el.getBoundingClientRect()
@@ -134,6 +170,27 @@
       right: boundingClientRect.right - event.clientX,
       bottom: boundingClientRect.bottom - event.clientY
     }
+  },
+  isEscape(event) {
+<span class="cstat-no" title="statement not covered" >    return (</span>
+      event.keyCode === 27 || event.code === 'Escape' || event.key === 'Escape'
+    )
+  },
+  htmlEncode(text) {
+<span class="cstat-no" title="statement not covered" >    if (typeof document !== 'object') {</span>
+<span class="cstat-no" title="statement not covered" >      return</span>
+    }
+    let div = <span class="cstat-no" title="statement not covered" >document.createElement('div')</span>
+<span class="cstat-no" title="statement not covered" >    div.textContent = text</span>
+<span class="cstat-no" title="statement not covered" >    return div.innerHTML</span>
+  },
+  htmlDecode(html) {
+<span class="cstat-no" title="statement not covered" >    if (typeof document !== 'object') {</span>
+<span class="cstat-no" title="statement not covered" >      return</span>
+    }
+    let div = <span class="cstat-no" title="statement not covered" >document.createElement('div')</span>
+<span class="cstat-no" title="statement not covered" >    div.innerHTML = html</span>
+<span class="cstat-no" title="statement not covered" >    return div.textContent</span>
   }
 }
 &nbsp;</pre></td></tr>
@@ -142,7 +199,7 @@
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Dec 16 2018 15:14:52 GMT+0800 (GMT+08:00)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Dec 18 2018 22:01:59 GMT+0800 (GMT+08:00)
 </div>
 </div>
 <script src="prettify.js"></script>
