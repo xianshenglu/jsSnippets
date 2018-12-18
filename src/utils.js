@@ -76,5 +76,105 @@ module.exports = {
       throw new Error('input should be String')
     }
     return str.replace(/-(\w)/g, (all, letter) => letter.toUpperCase())
+  },
+  /**
+   * @description detect if it is a generalized object
+   *
+   * @param {*} obj
+   * @returns {Boolean}
+   * @example
+   * isObject(new Function()) //true
+   * isObject(new RegExp()) //true
+   * isObject('') //false
+   */
+  isObject(obj) {
+    return obj !== null && ['object', 'function'].includes(typeof obj)
+  },
+  /**
+   * @description detect if it is a narrow object
+   * @param {*} obj
+   */
+  isPlainObject(obj) {
+    return (
+      Object.prototype.toString
+        .call(obj)
+        .slice(8, -1)
+        .toLocaleLowerCase() === 'object'
+    )
+  },
+  serializeObj(obj) {
+    return Reflect.ownKeys(obj)
+      .reduce((re, key) => {
+        re += `&${key}=${obj[key]}`
+        return re
+      }, '')
+      .replace('&', '')
+  },
+  replaceProperty(state, { paths, data }) {
+    let isObject = this.isObject(state)
+    if (typeof paths !== 'string' || !isObject) {
+      return false
+    }
+    paths = paths.split('.')
+    let isTargetObj = true
+    let target = paths.slice(0, -1).reduce((re, key, index, arr) => {
+      isTargetObj = this.isObject(re[key])
+      if (!isTargetObj) {
+        // break the reduce
+        arr.splice(index + 1)
+      }
+      return re[key]
+    }, state)
+    if (target === state || !isTargetObj) {
+      return false
+    }
+    target[paths.pop()] = data
+    return true
+  },
+  flattenArr(array, children = 'children') {
+    function iterator(arr, res) {
+      return arr.reduce((re, obj) => {
+        re.push(obj)
+        iterator(obj[children], re)
+        return re
+      }, res || [])
+    }
+    return iterator(array)
+  },
+  tryJsonParse(jsonText, errorKey = 'error', keepNull = { error: null }) {
+    try {
+      return JSON.parse(jsonText) || keepNull
+    } catch (e) {
+      return { [errorKey]: jsonText }
+    }
+  },
+  getSizeByRespectRatios({ holderRect, targetRect, mode = 'contain' }) {
+    let holderWid = holderRect.width
+    let holderHei = holderRect.height
+    let targetWid = targetRect.width
+    let targetHei = targetRect.height
+
+    let widthScaleRatio = holderWid / targetWid
+    let heightScaleRatio = holderHei / targetHei
+    let targetRespectRatio = targetWid / targetHei
+
+    let calcOnHeight = {
+      width: holderHei * targetRespectRatio,
+      height: holderHei,
+      offsetX: holderWid - holderHei * targetRespectRatio,
+      offsetY: 0
+    }
+    let calcOnWidth = {
+      width: holderWid,
+      height: holderWid / targetRespectRatio,
+      offsetX: 0,
+      offsetY: holderHei - holderWid / targetRespectRatio
+    }
+    switch (mode) {
+    case 'contain':
+      return widthScaleRatio > heightScaleRatio ? calcOnHeight : calcOnWidth
+    case 'cover':
+      return widthScaleRatio > heightScaleRatio ? calcOnWidth : calcOnHeight
+    }
   }
 }
