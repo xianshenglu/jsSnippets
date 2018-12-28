@@ -33,11 +33,6 @@ describe('getPseudorandom', () => {
 })
 
 describe('toFixedNoLast0', () => {
-  test('(non-Number) should throw Error', () => {
-    expect(() => {
-      utils.toFixedNoLast0('123', 4)
-    }).toThrow()
-  })
   test('(12.20000, 4) should equal 12.2', () => {
     expect(utils.toFixedNoLast0(Number('12.20000'), 4)).toBe('12.2')
   })
@@ -50,11 +45,6 @@ describe('toFixedNoLast0', () => {
 })
 
 describe('camelToHyphen', () => {
-  test('(non-String) should throw Error', () => {
-    expect(() => {
-      utils.camelToHyphen(123)
-    }).toThrow()
-  })
   test('(\'camel\') should equal "camel"', () => {
     expect(utils.camelToHyphen('camel')).toBe('camel')
   })
@@ -64,11 +54,6 @@ describe('camelToHyphen', () => {
 })
 
 describe('hyphenToCamel', () => {
-  test('(non-String) should throw Error', () => {
-    expect(() => {
-      utils.hyphenToCamel(123)
-    }).toThrow()
-  })
   test('(\'camel\') should equal "camel"', () => {
     expect(utils.hyphenToCamel('camel')).toBe('camel')
   })

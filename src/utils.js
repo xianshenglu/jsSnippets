@@ -44,9 +44,6 @@ module.exports = {
    * toFixedNoLast0(12.230, 4) //"12.23"
    */
   toFixedNoLast0(number, precise) {
-    if (typeof number !== 'number') {
-      throw new Error('input should be Number!')
-    }
     return number.toFixed(precise).replace(/\.?0+$/, '')
   },
 
@@ -58,9 +55,6 @@ module.exports = {
    * camelToHyphen('camelToHyphen') // "camel-to-hyphen"
    */
   camelToHyphen(str) {
-    if (typeof str !== 'string') {
-      throw new Error('input should be String')
-    }
     return str.replace(/([A-Z])/g, '-$1').toLowerCase()
   },
 
@@ -72,9 +66,6 @@ module.exports = {
    * hyphenToCamel('hyphen-to-camel') // "hyphenToCamel"
    */
   hyphenToCamel(str) {
-    if (typeof str !== 'string') {
-      throw new Error('input should be String')
-    }
     return str.replace(/-(\w)/g, (all, letter) => letter.toUpperCase())
   },
   /**
@@ -93,6 +84,12 @@ module.exports = {
   /**
    * @description detect if it is a narrow object
    * @param {*} obj
+   * @returns {Boolean}
+   * @example
+   * isPlainObject('') //false
+   * isPlainObject(true) //false
+   * isPlainObject(new Function()) //false
+   * isPlainObject({}) //true
    */
   isPlainObject(obj) {
     return (
@@ -101,14 +98,6 @@ module.exports = {
         .slice(8, -1)
         .toLocaleLowerCase() === 'object'
     )
-  },
-  serializeObj(obj) {
-    return Reflect.ownKeys(obj)
-      .reduce((re, key) => {
-        re += `&${key}=${obj[key]}`
-        return re
-      }, '')
-      .replace('&', '')
   },
   replaceProperty(state, { paths, data }) {
     let isObject = this.isObject(state)

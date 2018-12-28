@@ -31,18 +31,12 @@ module.exports = {
       event.keyCode === 27 || event.code === 'Escape' || event.key === 'Escape'
     )
   },
-  htmlEncode(text) {
-    if (typeof document !== 'object') {
-      return
-    }
+  htmlEncodeByDom(text) {
     let div = document.createElement('div')
     div.textContent = text
     return div.innerHTML
   },
-  htmlDecode(html) {
-    if (typeof document !== 'object') {
-      return
-    }
+  htmlDecodeByDom(html) {
     let div = document.createElement('div')
     div.innerHTML = html
     return div.textContent
