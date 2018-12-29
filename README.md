@@ -6,4 +6,4 @@
 
 ### [utils](./spec/utils.md)
 
-### [domUtils](./spec/domUtils.md)
+### [browserUtils](./spec/browserUtils.md)

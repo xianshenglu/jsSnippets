@@ -1,5 +1,5 @@
 /**
- * @module domUtils
+ * @module browserUtils
  */
 module.exports = {
   /**

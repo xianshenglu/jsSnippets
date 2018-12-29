@@ -1,4 +1,4 @@
-const domUtils = require('../../src/domUtils')
+const domUtils = require('../../src/browserUtils')
 document.body.innerHTML = `
     <div class="app">
       <nav class="app__nav">
