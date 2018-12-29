@@ -212,26 +212,3 @@ describe('calcSizeWithRespectRatio', () => {
     })
   })
 })
-describe('isElement', () => {
-  test('(document) should return true', () => {
-    expect(utils.isElement(document)).toBe(true)
-  })
-  test('(document.documentElement) should return true', () => {
-    expect(utils.isElement(document.documentElement)).toBe(true)
-  })
-  test('(document.createElement(\'svg\')) should return true', () => {
-    expect(utils.isElement(document.createElement('svg'))).toBe(true)
-  })
-  test('(document.createDocumentFragment()) should return false', () => {
-    expect(utils.isElement(document.createDocumentFragment())).toBe(false)
-  })
-  test('([]) should return false', () => {
-    expect(utils.isElement([])).toBe(false)
-  })
-  test('("") should return false', () => {
-    expect(utils.isElement('')).toBe(false)
-  })
-  test('(null) should return false', () => {
-    expect(utils.isElement(null)).toBe(false)
-  })
-})
