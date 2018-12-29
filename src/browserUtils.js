@@ -12,6 +12,29 @@ module.exports = {
     return Array.from(parentNode.querySelectorAll(selector))
   },
   /**
+   * @description implement `closest` with destination
+   * @param {HTMLElement} el element to start find
+   * @param {String} selector
+   * @param {HTMLElement} destination where to stop query when meeting this node
+   * @example
+   */
+  closest(el, selector, destination = document.documentElement) {
+    const matchesSelector =
+      el.matches ||
+      el.webkitMatchesSelector ||
+      el.mozMatchesSelector ||
+      el.msMatchesSelector
+
+    while (el && el !== destination) {
+      if (matchesSelector.call(el, selector)) {
+        return el
+      } else {
+        el = el.parentElement
+      }
+    }
+    return null
+  },
+  /**
    * @description get element relative position offset to event
    * @param {Event} event
    * @param {HTMLElement} el
