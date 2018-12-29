@@ -70,24 +70,21 @@ module.exports = {
   },
   /**
    * @description detect if it is a generalized object
-   *
    * @param {*} obj
    * @returns {Boolean}
    * @example
-   * isObject(new Function()) //true
    * isObject(new RegExp()) //true
    * isObject('') //false
    */
   isObject(obj) {
-    return obj !== null && ['object', 'function'].includes(typeof obj)
+    let type = typeof obj
+    return obj !== null && (type === 'object' || type === 'function')
   },
   /**
    * @description detect if it is a narrow object
    * @param {*} obj
    * @returns {Boolean}
    * @example
-   * isPlainObject('') //false
-   * isPlainObject(true) //false
    * isPlainObject(new Function()) //false
    * isPlainObject({}) //true
    */
@@ -99,49 +96,82 @@ module.exports = {
         .toLocaleLowerCase() === 'object'
     )
   },
-  replaceProperty(state, { paths, data }) {
-    let isObject = this.isObject(state)
-    if (typeof paths !== 'string' || !isObject) {
-      return false
-    }
-    paths = paths.split('.')
-    let isTargetObj = true
-    let target = paths.slice(0, -1).reduce((re, key, index, arr) => {
-      isTargetObj = this.isObject(re[key])
-      if (!isTargetObj) {
-        // break the reduce
-        arr.splice(index + 1)
-      }
+  /**
+   * @description execute state[property[.property.[...]]] = data
+   * @param {Object} state
+   * @param {{path:String,data:*}} param
+   * @example
+   * replaceProperty({a:{b:{c:1}}},{path:'a.b.c',data:2})// {a:{b:{c:2}}}
+   * replaceProperty({a:{b:{c:[1,2,3]}}},{path:'a.b.c.1',data:1}) // {a:{b:{c:[1,1,3]}}}
+   */
+  replaceProperty(state, { path, data }) {
+    path = path.split('.')
+    let terminalProp = path.pop()
+    let target = path.reduce((re, key) => {
       return re[key]
     }, state)
-    if (target === state || !isTargetObj) {
-      return false
-    }
-    target[paths.pop()] = data
-    return true
+    target[terminalProp] = data
+    return state
   },
-  flattenArr(array, children = 'children') {
+  /**
+   * @description put nested children in one dimension
+   * @param {Array} array
+   * @param {string} [children='children'] key name of children
+   * @returns {Array}
+   * @example
+   * flattenArr([{value:'1',children:[{value:'1.1',children:[{value:'1.1.1'}]},{value:'1.2',children:[{value:'1.2.1',children:[]}]}]}]) //[{value:'1',...},{value:'1.1',...},{value:'1.1.1',...},{value:'1.2',...},{value:'1.2.1',...}]
+   */
+  flattenArr(array, childrenKey = 'children') {
     function iterator(arr, res) {
       return arr.reduce((re, obj) => {
         re.push(obj)
-        iterator(obj[children], re)
+        let children = obj[childrenKey]
+        if (Array.isArray(children)) {
+          iterator(children, re)
+        }
         return re
       }, res || [])
     }
     return iterator(array)
   },
-  tryJsonParse(jsonText, errorKey = 'error', keepNull = { error: null }) {
+  /**
+   * @description add error handler when using JSON.parse()
+   * @param {*} jsonText
+   * @param {string} [errorPropertyName='error']
+   * @param {*} [valueForNull={ [errorPropertyName]: null }]
+   * @returns {Object} new Object, with the original text saved in errorPropertyName
+   * @example
+   * tryJsonParse('str') //{error:'str'}
+   * tryJsonParse(null,null) //{'null':null}
+   * tryJsonParse(null,null,null) //null
+   * tryJsonParse('{"name":"test","value":1}') //{name: "test", value: 1}
+   */
+  tryJsonParse(
+    jsonText,
+    errorPropertyName = 'error',
+    valueForNull = { [errorPropertyName]: null }
+  ) {
     try {
-      return JSON.parse(jsonText) || keepNull
+      return JSON.parse(jsonText) || valueForNull
     } catch (e) {
-      return { [errorKey]: jsonText }
+      return { [errorPropertyName]: jsonText }
     }
   },
-  getSizeByRespectRatios({ holderRect, targetRect, mode = 'contain' }) {
-    let holderWid = holderRect.width
-    let holderHei = holderRect.height
-    let targetWid = targetRect.width
-    let targetHei = targetRect.height
+  /**
+   * @description calculate the max size child can be without change respect ratio
+   * @param {{width:Number,height:Number}} parentRect parent container size
+   * @param {{width:Number,height:Number}} childRect child container size
+   * @param {string} [mode='contain'] calculate by contain or cover, which is similar to background-size values
+   * @returns {{width,height,offsetX,offsetY}} target child size
+   * @example
+   * calcSizeWithRespectRatio({width:100,height:100},{width:50,height:200}) //{width:25,height:100,offsetX:75,offsetY:0}
+   * calcSizeWithRespectRatio({width:100,height:100},{width:50,height:200},'cover') //{width:100,height:400,offsetX:0,offsetY:-300}
+   */
+  calcSizeWithRespectRatio(parentRect, childRect, mode = 'contain') {
+    let holderWid = parentRect.width
+    let holderHei = parentRect.height
+    let targetWid = childRect.width
+    let targetHei = childRect.height
 
     let widthScaleRatio = holderWid / targetWid
     let heightScaleRatio = holderHei / targetHei
@@ -165,5 +195,37 @@ module.exports = {
     case 'cover':
       return widthScaleRatio > heightScaleRatio ? calcOnWidth : calcOnHeight
     }
+  },
+  /**
+   * @description detect if obj is an element or document
+   * @param {*} obj
+   * @returns {Boolean}
+   * @example
+   * isElement(document) // true
+   * isElement(document.documentElement) // true
+   * isElement(document.createElement('svg')) // true
+   * isElement(document.createDocumentFragment()) // false
+   * isElement([]) // false
+   */
+  isElement(obj) {
+    if (typeof obj !== 'object' || obj === null) {
+      return false
+    }
+    let prototypeStr, prototype
+    do {
+      prototype = Object.getPrototypeOf(obj)
+      // to work in iframe
+      prototypeStr = Object.prototype.toString.call(prototype)
+      // '[object Document]' is used to detect document
+      if (
+        prototypeStr === '[object Element]' ||
+        prototypeStr === '[object Document]'
+      ) {
+        return true
+      }
+      obj = prototype
+      // null is the terminal of object
+    } while (prototype !== null)
+    return false
   }
 }

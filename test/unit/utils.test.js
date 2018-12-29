@@ -61,3 +61,177 @@ describe('hyphenToCamel', () => {
     expect(utils.hyphenToCamel('hyphen-to-camel')).toBe('hyphenToCamel')
   })
 })
+
+describe('isObject', () => {
+  test('(new Function()) should return true', () => {
+    expect(utils.isObject(new Function())).toBe(true)
+  })
+  test('(new RegExp()) should return true', () => {
+    expect(utils.isObject(new RegExp())).toBe(true)
+  })
+  test('({}) should return true', () => {
+    expect(utils.isObject({})).toBe(true)
+  })
+  test('(\'str\') should return false', () => {
+    expect(utils.isObject('str')).toBe(false)
+  })
+})
+describe('isPlainObject', () => {
+  test('(false) should return false', () => {
+    expect(utils.isPlainObject(false)).toBe(false)
+  })
+  test('(new Function()) should return false', () => {
+    expect(utils.isPlainObject(new Function())).toBe(false)
+  })
+  test('({}) should return true', () => {
+    expect(utils.isPlainObject({})).toBe(true)
+  })
+})
+describe('isPlainObject', () => {
+  test('(false) should return false', () => {
+    expect(utils.isPlainObject(false)).toBe(false)
+  })
+  test('(new Function()) should return false', () => {
+    expect(utils.isPlainObject(new Function())).toBe(false)
+  })
+  test('({}) should return true', () => {
+    expect(utils.isPlainObject({})).toBe(true)
+  })
+})
+describe('replaceProperty', () => {
+  test('({a:{b:{c:1}}},{path:\'a.b.c\',data:2}) should change first param to {a:{b:{c:2}}}', () => {
+    let state = { a: { b: { c: 1 } } }
+    utils.replaceProperty(state, { path: 'a.b.c', data: 2 })
+    expect(state).toEqual({ a: { b: { c: 2 } } })
+  })
+  test('({a:{b:{c:[1,2,3]}}},{path:\'a.b.c.1\',data:1}) should change first param to {a:{b:{c:[1,1,3]}}}', () => {
+    let state = { a: { b: { c: [1, 2, 3] } } }
+    utils.replaceProperty(state, { path: 'a.b.c.1', data: 1 })
+    expect(state).toEqual({ a: { b: { c: [1, 1, 3] } } })
+  })
+  test('({a:{}},{path:\'a\',data:1}) should change first param to {a:1}', () => {
+    let state = { a: {} }
+    utils.replaceProperty(state, { path: 'a', data: 1 })
+    expect(state).toEqual({ a: 1 })
+  })
+})
+describe('flattenArr', () => {
+  let data1 = [
+    {
+      value: '1',
+      children: [
+        { value: '1.1', children: [{ value: '1.1.1' }] },
+        { value: '1.2', children: [{ value: '1.2.1', children: [] }] }
+      ]
+    }
+  ]
+  let result1 = [
+    {
+      value: '1',
+      children: [
+        { value: '1.1', children: [{ value: '1.1.1' }] },
+        { value: '1.2', children: [{ value: '1.2.1', children: [] }] }
+      ]
+    },
+    { value: '1.1', children: [{ value: '1.1.1' }] },
+    { value: '1.1.1' },
+    { value: '1.2', children: [{ value: '1.2.1', children: [] }] },
+    { value: '1.2.1', children: [] }
+  ]
+  test(`(${JSON.stringify(data1)}) should return ${JSON.stringify(
+    result1
+  )}`, () => {
+    expect(utils.flattenArr(data1)).toEqual(result1)
+  })
+  let data2 = [
+    {
+      value: '1',
+      child: [
+        { value: '1.1', child: [{ value: '1.1.1' }] },
+        { value: '1.2', child: [{ value: '1.2.1', child: [] }] }
+      ]
+    }
+  ]
+  let result2 = [
+    {
+      value: '1',
+      child: [
+        { value: '1.1', child: [{ value: '1.1.1' }] },
+        { value: '1.2', child: [{ value: '1.2.1', child: [] }] }
+      ]
+    },
+    { value: '1.1', child: [{ value: '1.1.1' }] },
+    { value: '1.1.1' },
+    { value: '1.2', child: [{ value: '1.2.1', child: [] }] },
+    { value: '1.2.1', child: [] }
+  ]
+  test(`(${JSON.stringify(data2)}) should return ${JSON.stringify(
+    result2
+  )}`, () => {
+    expect(utils.flattenArr(data2, 'child')).toEqual(result2)
+  })
+})
+describe('tryJsonParse', () => {
+  test('("str") should return {error:\'str\'}', () => {
+    expect(utils.tryJsonParse('str')).toEqual({ error: 'str' })
+  })
+  test('(null,null) should return {\'null\':null}', () => {
+    expect(utils.tryJsonParse(null, null)).toEqual({ null: null })
+  })
+  test('(null,null,null) should return null', () => {
+    expect(utils.tryJsonParse(null, null, null)).toEqual(null)
+  })
+  test('({"name":"test","value":1}) should return {"name":"test","value":1}', () => {
+    expect(utils.tryJsonParse('{"name":"test","value":1}')).toEqual({
+      name: 'test',
+      value: 1
+    })
+  })
+})
+describe('calcSizeWithRespectRatio', () => {
+  test('({width:100,height:100},{width:50,height:200}) should return { width: 25, height: 100, offsetX: 75, offsetY: 0 }', () => {
+    expect(
+      utils.calcSizeWithRespectRatio(
+        { width: 100, height: 100 },
+        { width: 50, height: 200 }
+      )
+    ).toEqual({ width: 25, height: 100, offsetX: 75, offsetY: 0 })
+  })
+  test('({width:100,height:100},{width:50,height:200}),\'cover\') should return {width:100,height:400,offsetX:0,offsetY:-300}', () => {
+    expect(
+      utils.calcSizeWithRespectRatio(
+        { width: 100, height: 100 },
+        { width: 50, height: 200 },
+        'cover'
+      )
+    ).toEqual({
+      width: 100,
+      height: 400,
+      offsetX: 0,
+      offsetY: -300
+    })
+  })
+})
+describe('isElement', () => {
+  test('(document) should return true', () => {
+    expect(utils.isElement(document)).toBe(true)
+  })
+  test('(document.documentElement) should return true', () => {
+    expect(utils.isElement(document.documentElement)).toBe(true)
+  })
+  test('(document.createElement(\'svg\')) should return true', () => {
+    expect(utils.isElement(document.createElement('svg'))).toBe(true)
+  })
+  test('(document.createDocumentFragment()) should return false', () => {
+    expect(utils.isElement(document.createDocumentFragment())).toBe(false)
+  })
+  test('([]) should return false', () => {
+    expect(utils.isElement([])).toBe(false)
+  })
+  test('("") should return false', () => {
+    expect(utils.isElement('')).toBe(false)
+  })
+  test('(null) should return false', () => {
+    expect(utils.isElement(null)).toBe(false)
+  })
+})
