@@ -16,7 +16,6 @@ module.exports = {
    * @param {HTMLElement} el element to start find
    * @param {String} selector
    * @param {HTMLElement} destination where to stop query when meeting this node
-   * @example
    */
   closest(el, selector, destination = document.documentElement) {
     const matchesSelector =
