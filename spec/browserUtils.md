@@ -4,6 +4,7 @@
 
 * [browserUtils](#module_browserUtils)
     * [.$(selector, [parentNode])](#module_browserUtils.$) ⇒ <code>Array</code>
+    * [.closest(el, selector, destination)](#module_browserUtils.closest)
     * [.getElOffsetToEvent(event, el)](#module_browserUtils.getElOffsetToEvent) ⇒ <code>Object</code>
     * [.isElement(obj)](#module_browserUtils.isElement) ⇒ <code>Boolean</code>
     * [.isEscape(event)](#module_browserUtils.isEscape) ⇒ <code>Boolean</code>
@@ -23,6 +24,19 @@ imitate DOM selector`$` in jQuery
 | --- | --- | --- |
 | selector | <code>String</code> |  | 
 | [parentNode] | <code>Node</code> | <code>document</code> | 
+
+<a name="module_browserUtils.closest"></a>
+
+### browserUtils.closest(el, selector, destination)
+implement `closest` with destination
+
+**Kind**: static method of [<code>browserUtils</code>](#module_browserUtils)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| el | <code>HTMLElement</code> | element to start find |
+| selector | <code>String</code> |  |
+| destination | <code>HTMLElement</code> | where to stop query when meeting this node |
 
 <a name="module_browserUtils.getElOffsetToEvent"></a>
 
