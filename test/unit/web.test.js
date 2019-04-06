@@ -1,4 +1,4 @@
-const browserUtils = require('../../src/browserUtils')
+import * as web from '../../src/web'
 document.body.innerHTML = `
 <div class="app">
   <nav class="app__nav">
@@ -13,15 +13,13 @@ document.body.innerHTML = `
 `
 describe('$', () => {
   test('$(".app__father") should equal  []', () => {
-    expect(browserUtils.$('.app__father')).toEqual([])
+    expect(web.$('.app__father')).toEqual([])
   })
   test('$("a") should equal Array.from(document.querySelectorAll("a"))', () => {
-    expect(browserUtils.$('a')).toEqual(
-      Array.from(document.querySelectorAll('a'))
-    )
+    expect(web.$('a')).toEqual(Array.from(document.querySelectorAll('a')))
   })
   test('$("a",document.querySelector(\'.app__nav\')) should equal Array.from(document.querySelector(\'.app__nav\').querySelectorAll("a"))', () => {
-    expect(browserUtils.$('a', document.querySelector('.app__nav'))).toEqual(
+    expect(web.$('a', document.querySelector('.app__nav'))).toEqual(
       Array.from(document.querySelector('.app__nav').querySelectorAll('a'))
     )
   })
@@ -31,17 +29,17 @@ describe('closest', () => {
   let appCont = document.querySelectorAll('.app__cont')[0]
   let app = document.querySelectorAll('.app')[0]
   test('(lastAppLink,\'.app\',appCont) should return null', () => {
-    let result = browserUtils.closest(lastAppLink, '.app', appCont)
+    let result = web.closest(lastAppLink, '.app', appCont)
     expect(result).toBe(null)
   })
   test('(lastAppLink,\'.app\') should return app', () => {
-    let result = browserUtils.closest(lastAppLink, '.app')
+    let result = web.closest(lastAppLink, '.app')
     expect(result).toBe(app)
   })
 })
 describe('getElOffsetToEvent', () => {
   test('({},document.body)', () => {
-    let result = browserUtils.getElOffsetToEvent(
+    let result = web.getElOffsetToEvent(
       { clientX: 50, clientY: 50 },
       document.body
     )
@@ -53,52 +51,50 @@ describe('getElOffsetToEvent', () => {
 })
 describe('isElement', () => {
   test('(document) should return true', () => {
-    expect(browserUtils.isElement(document)).toBe(true)
+    expect(web.isElement(document)).toBe(true)
   })
   test('(document.documentElement) should return true', () => {
-    expect(browserUtils.isElement(document.documentElement)).toBe(true)
+    expect(web.isElement(document.documentElement)).toBe(true)
   })
   test('(document.createElement(\'svg\')) should return true', () => {
-    expect(browserUtils.isElement(document.createElement('svg'))).toBe(true)
+    expect(web.isElement(document.createElement('svg'))).toBe(true)
   })
   test('(document.createDocumentFragment()) should return false', () => {
-    expect(browserUtils.isElement(document.createDocumentFragment())).toBe(
-      false
-    )
+    expect(web.isElement(document.createDocumentFragment())).toBe(false)
   })
   test('([]) should return false', () => {
-    expect(browserUtils.isElement([])).toBe(false)
+    expect(web.isElement([])).toBe(false)
   })
   test('("") should return false', () => {
-    expect(browserUtils.isElement('')).toBe(false)
+    expect(web.isElement('')).toBe(false)
   })
   test('(null) should return false', () => {
-    expect(browserUtils.isElement(null)).toBe(false)
+    expect(web.isElement(null)).toBe(false)
   })
 })
 describe('htmlEncodeByDom', () => {
   test('(<script></script>) should return &lt;script&gt;&lt;/script&gt;', () => {
-    let result = browserUtils.htmlEncodeByDom('<script></script>')
+    let result = web.htmlEncodeByDom('<script></script>')
     expect(result).toBe('&lt;script&gt;&lt;/script&gt;')
   })
   test('(<script>) should return &lt;script&gt;', () => {
-    let result = browserUtils.htmlEncodeByDom('<script>')
+    let result = web.htmlEncodeByDom('<script>')
     expect(result).toBe('&lt;script&gt;')
   })
 })
 describe('htmlDecodeByDom', () => {
   test('(<script></script>) should return &lt;script&gt;&lt;/script&gt;', () => {
-    let result = browserUtils.htmlDecodeByDom('&lt;script&gt;&lt;/script&gt;')
+    let result = web.htmlDecodeByDom('&lt;script&gt;&lt;/script&gt;')
     expect(result).toBe('<script></script>')
   })
   test('(&lt;script&gt;) should return <script>', () => {
-    let result = browserUtils.htmlDecodeByDom('&lt;script&gt;')
+    let result = web.htmlDecodeByDom('&lt;script&gt;')
     expect(result).toBe('<script>')
   })
 })
 describe('isLandscape', () => {
   test('() should return true', () => {
-    let result = browserUtils.isLandscape()
+    let result = web.isLandscape()
     expect(result).toBe(true)
   })
 })

@@ -1,4 +1,5 @@
-const utils = require('../../src/utils')
+// todo import not work in node
+import * as utils from '../../src/utils'
 describe('sortCharacters', () => {
   test('(sfdaffaadaafafsfed) should equal  ["e", "ss", "ddd", "aaaaaa", "ffffff"]', () => {
     expect(utils.sortCharacters('sfdaffaadaafafsfed')).toEqual([

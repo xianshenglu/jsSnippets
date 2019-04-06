@@ -1,26 +1,54 @@
-<a name="module_utils"></a>
+## Functions
 
-## utils
+<dl>
+<dt><a href="#sortCharacters">sortCharacters(str)</a> ⇒ <code>Array</code></dt>
+<dd><p>put the repetitive letter together</p>
+</dd>
+<dt><a href="#getPseudorandom">getPseudorandom(arr)</a> ⇒ <code>Array</code></dt>
+<dd><p>sort array randomly</p>
+</dd>
+<dt><a href="#toFixedNoLast0">toFixedNoLast0(num, precise)</a> ⇒ <code>String</code></dt>
+<dd><p>delete the last <code>0</code> when a number calls toFixed</p>
+</dd>
+<dt><a href="#camelToHyphen">camelToHyphen(str)</a> ⇒ <code>String</code></dt>
+<dd><p>camel to hyphen</p>
+</dd>
+<dt><a href="#hyphenToCamel">hyphenToCamel(str)</a> ⇒ <code>String</code></dt>
+<dd><p>hyphen to camel</p>
+</dd>
+<dt><a href="#isObject">isObject(obj)</a> ⇒ <code>Boolean</code></dt>
+<dd><p>detect if it is a generalized object</p>
+</dd>
+<dt><a href="#isPlainObject">isPlainObject(obj)</a> ⇒ <code>Boolean</code></dt>
+<dd><p>detect if it is a narrow object</p>
+</dd>
+<dt><a href="#replaceProperty">replaceProperty(state, param)</a></dt>
+<dd><p>execute state[property[.property.[...]]] = data</p>
+</dd>
+<dt><a href="#flattenArr">flattenArr(array, [children])</a> ⇒ <code>Array</code></dt>
+<dd><p>put nested children in one dimension</p>
+</dd>
+<dt><a href="#tryJsonParse">tryJsonParse(jsonText, [errorPropertyName], [valueForNull])</a> ⇒ <code>Object</code></dt>
+<dd><p>add error handler when using JSON.parse()</p>
+</dd>
+<dt><a href="#calcSizeWithRespectRatio">calcSizeWithRespectRatio(parentRect, childRect, [mode])</a> ⇒ <code>Object</code></dt>
+<dd><p>calculate the max size child can be without change respect ratio</p>
+</dd>
+<dt><a href="#serializeObj">serializeObj(obj, [transformer])</a> ⇒ <code>String</code></dt>
+<dd></dd>
+<dt><a href="#getDateInfo">getDateInfo()</a> ⇒ <code>Array</code></dt>
+<dd><p>get common date info of a date</p>
+</dd>
+<dt><a href="#flatFormRules">flatFormRules(rules, separator)</a></dt>
+<dd></dd>
+</dl>
 
-* [utils](#module_utils)
-    * [.sortCharacters(str)](#module_utils.sortCharacters) ⇒ <code>Array</code>
-    * [.getPseudorandom(arr)](#module_utils.getPseudorandom) ⇒ <code>Array</code>
-    * [.toFixedNoLast0(num, precise)](#module_utils.toFixedNoLast0) ⇒ <code>String</code>
-    * [.camelToHyphen(str)](#module_utils.camelToHyphen) ⇒ <code>String</code>
-    * [.hyphenToCamel(str)](#module_utils.hyphenToCamel) ⇒ <code>String</code>
-    * [.isObject(obj)](#module_utils.isObject) ⇒ <code>Boolean</code>
-    * [.isPlainObject(obj)](#module_utils.isPlainObject) ⇒ <code>Boolean</code>
-    * [.replaceProperty(state, param)](#module_utils.replaceProperty)
-    * [.flattenArr(array, [children])](#module_utils.flattenArr) ⇒ <code>Array</code>
-    * [.tryJsonParse(jsonText, [errorPropertyName], [valueForNull])](#module_utils.tryJsonParse) ⇒ <code>Object</code>
-    * [.calcSizeWithRespectRatio(parentRect, childRect, [mode])](#module_utils.calcSizeWithRespectRatio) ⇒ <code>Object</code>
+<a name="sortCharacters"></a>
 
-<a name="module_utils.sortCharacters"></a>
-
-### utils.sortCharacters(str) ⇒ <code>Array</code>
+## sortCharacters(str) ⇒ <code>Array</code>
 put the repetitive letter together
 
-**Kind**: static method of [<code>utils</code>](#module_utils)  
+**Kind**: global function  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -30,12 +58,12 @@ put the repetitive letter together
 ```js
 sortCharacters('sfdaffaadaafafsfed') // ["e", "ss", "ddd", "aaaaaa", "ffffff"]
 ```
-<a name="module_utils.getPseudorandom"></a>
+<a name="getPseudorandom"></a>
 
-### utils.getPseudorandom(arr) ⇒ <code>Array</code>
+## getPseudorandom(arr) ⇒ <code>Array</code>
 sort array randomly
 
-**Kind**: static method of [<code>utils</code>](#module_utils)  
+**Kind**: global function  
 **Returns**: <code>Array</code> - array randomly sorted  
 
 | Param | Type |
@@ -46,12 +74,12 @@ sort array randomly
 ```js
 getPseudorandom([1,2,3,4,5,6]) //not equal [1,2,3,4,5,6]
 ```
-<a name="module_utils.toFixedNoLast0"></a>
+<a name="toFixedNoLast0"></a>
 
-### utils.toFixedNoLast0(num, precise) ⇒ <code>String</code>
+## toFixedNoLast0(num, precise) ⇒ <code>String</code>
 delete the last `0` when a number calls toFixed
 
-**Kind**: static method of [<code>utils</code>](#module_utils)  
+**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -62,12 +90,12 @@ delete the last `0` when a number calls toFixed
 ```js
 toFixedNoLast0(12.230, 4) //"12.23"
 ```
-<a name="module_utils.camelToHyphen"></a>
+<a name="camelToHyphen"></a>
 
-### utils.camelToHyphen(str) ⇒ <code>String</code>
+## camelToHyphen(str) ⇒ <code>String</code>
 camel to hyphen
 
-**Kind**: static method of [<code>utils</code>](#module_utils)  
+**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -77,12 +105,12 @@ camel to hyphen
 ```js
 camelToHyphen('camelToHyphen') // "camel-to-hyphen"
 ```
-<a name="module_utils.hyphenToCamel"></a>
+<a name="hyphenToCamel"></a>
 
-### utils.hyphenToCamel(str) ⇒ <code>String</code>
+## hyphenToCamel(str) ⇒ <code>String</code>
 hyphen to camel
 
-**Kind**: static method of [<code>utils</code>](#module_utils)  
+**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -92,12 +120,12 @@ hyphen to camel
 ```js
 hyphenToCamel('hyphen-to-camel') // "hyphenToCamel"
 ```
-<a name="module_utils.isObject"></a>
+<a name="isObject"></a>
 
-### utils.isObject(obj) ⇒ <code>Boolean</code>
+## isObject(obj) ⇒ <code>Boolean</code>
 detect if it is a generalized object
 
-**Kind**: static method of [<code>utils</code>](#module_utils)  
+**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -107,12 +135,12 @@ detect if it is a generalized object
 ```js
 isObject(new RegExp()) //trueisObject('') //false
 ```
-<a name="module_utils.isPlainObject"></a>
+<a name="isPlainObject"></a>
 
-### utils.isPlainObject(obj) ⇒ <code>Boolean</code>
+## isPlainObject(obj) ⇒ <code>Boolean</code>
 detect if it is a narrow object
 
-**Kind**: static method of [<code>utils</code>](#module_utils)  
+**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -122,12 +150,12 @@ detect if it is a narrow object
 ```js
 isPlainObject(new Function()) //falseisPlainObject({}) //true
 ```
-<a name="module_utils.replaceProperty"></a>
+<a name="replaceProperty"></a>
 
-### utils.replaceProperty(state, param)
+## replaceProperty(state, param)
 execute state[property[.property.[...]]] = data
 
-**Kind**: static method of [<code>utils</code>](#module_utils)  
+**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -138,12 +166,12 @@ execute state[property[.property.[...]]] = data
 ```js
 replaceProperty({a:{b:{c:1}}},{path:'a.b.c',data:2})// {a:{b:{c:2}}}replaceProperty({a:{b:{c:[1,2,3]}}},{path:'a.b.c.1',data:1}) // {a:{b:{c:[1,1,3]}}}
 ```
-<a name="module_utils.flattenArr"></a>
+<a name="flattenArr"></a>
 
-### utils.flattenArr(array, [children]) ⇒ <code>Array</code>
+## flattenArr(array, [children]) ⇒ <code>Array</code>
 put nested children in one dimension
 
-**Kind**: static method of [<code>utils</code>](#module_utils)  
+**Kind**: global function  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -154,12 +182,12 @@ put nested children in one dimension
 ```js
 flattenArr([{value:'1',children:[{value:'1.1',children:[{value:'1.1.1'}]},{value:'1.2',children:[{value:'1.2.1',children:[]}]}]}]) //[{value:'1',...},{value:'1.1',...},{value:'1.1.1',...},{value:'1.2',...},{value:'1.2.1',...}]
 ```
-<a name="module_utils.tryJsonParse"></a>
+<a name="tryJsonParse"></a>
 
-### utils.tryJsonParse(jsonText, [errorPropertyName], [valueForNull]) ⇒ <code>Object</code>
+## tryJsonParse(jsonText, [errorPropertyName], [valueForNull]) ⇒ <code>Object</code>
 add error handler when using JSON.parse()
 
-**Kind**: static method of [<code>utils</code>](#module_utils)  
+**Kind**: global function  
 **Returns**: <code>Object</code> - new Object, with the original text saved in errorPropertyName  
 
 | Param | Type | Default |
@@ -172,12 +200,12 @@ add error handler when using JSON.parse()
 ```js
 tryJsonParse('str') //{error:'str'}tryJsonParse(null,null) //{'null':null}tryJsonParse(null,null,null) //nulltryJsonParse('{"name":"test","value":1}') //{name: "test", value: 1}
 ```
-<a name="module_utils.calcSizeWithRespectRatio"></a>
+<a name="calcSizeWithRespectRatio"></a>
 
-### utils.calcSizeWithRespectRatio(parentRect, childRect, [mode]) ⇒ <code>Object</code>
+## calcSizeWithRespectRatio(parentRect, childRect, [mode]) ⇒ <code>Object</code>
 calculate the max size child can be without change respect ratio
 
-**Kind**: static method of [<code>utils</code>](#module_utils)  
+**Kind**: global function  
 **Returns**: <code>Object</code> - target child size  
 
 | Param | Type | Default | Description |
@@ -189,4 +217,76 @@ calculate the max size child can be without change respect ratio
 **Example**  
 ```js
 calcSizeWithRespectRatio({width:100,height:100},{width:50,height:200}) //{width:25,height:100,offsetX:75,offsetY:0}calcSizeWithRespectRatio({width:100,height:100},{width:50,height:200},'cover') //{width:100,height:400,offsetX:0,offsetY:-300}
+```
+<a name="serializeObj"></a>
+
+## serializeObj(obj, [transformer]) ⇒ <code>String</code>
+**Kind**: global function  
+**Returns**: <code>String</code> - serialized string  
+**Author**: luxiansheng  
+
+| Param | Type |
+| --- | --- |
+| obj | <code>Object</code> | 
+| [transformer] | <code>function</code> | 
+
+**Example**  
+```js
+// returns x=1&y=2serializeObj({x:1,y:2})
+```
+**Example**  
+```js
+// returns x=1serializeObj({x:1,y:undefined})
+```
+**Example**  
+```js
+// returns x=1serializeObj({x:1,y:null})
+```
+**Example**  
+```js
+// returns x=1serializeObj({x:1,y:''})
+```
+**Example**  
+```js
+// returns x=1&y=15030230023serializeObj({ x: 1, y: new Date() }, (key, value) => value instanceof Date ? key+'='+value.getTime() : key+'='+value)
+```
+<a name="getDateInfo"></a>
+
+## getDateInfo() ⇒ <code>Array</code>
+get common date info of a date
+
+**Kind**: global function  
+**Todo**
+
+- [ ] need correction
+
+**Example**  
+```js
+// {"year":2019,"month":4,"date":21,"hour":13,"minute":26,"second":1,"millisecond":1555824361000}getDateInfo({inputDate:new Date(2019,3,21,13,26,1)})
+```
+**Example**  
+```js
+//{"year":2019,"month":3,"date":21,"hour":13,"minute":26,"second":1,"millisecond":1555824361000}getDateInfo({inputDate:new Date(2019,3,21,13,26,1),correctMonth:false})
+```
+**Example**  
+```js
+// {"yyyy":"2019","MM":"04","dd":"21","hh":"13","mm":"26","ss":"01","millisecond":"1555824361000"}getDateInfo({inputDate:new Date(2019,3,21,13,26,1),padStart:true,type:'string'})
+```
+<a name="flatFormRules"></a>
+
+## flatFormRules(rules, separator)
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| rules | <code>Object</code> | 
+| separator | <code>String</code> | 
+
+**Example**  
+```js
+// [{"message":"field1 rule1！"},{"message":"field2 rule1！"},{"message":"field2 rule2！"}]flatFormRules({ field1: [  {  message: 'field1 rule1！' } ], field2: [ {  message: 'field2 rule1！' }, {  message: 'field2 rule2！' }]})
+```
+**Example**  
+```js
+// [{"message":"field1 rule1！"},{"message":"field2 rule1！"}]flatFormRules({ field1: [  {  message: 'field1 rule1！' } ], field2: [ {  message: 'field2 rule1！' },]})
 ```
