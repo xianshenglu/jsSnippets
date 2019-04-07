@@ -1,6 +1,7 @@
 {
   "name": "js-snippets",
   "version": "1.0.0",
+  "sideEffects": false,
   "description": "jsSnippets",
   "main": "index.js",
   "scripts": {
