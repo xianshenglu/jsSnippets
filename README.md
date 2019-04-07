@@ -2,13 +2,13 @@
 
 ![](https://img.shields.io/badge/coverage-62.28-yellow.svg) ![](https://img.shields.io/badge/status-maintaining-green.svg)
 
-### Code
+### Doc
 
 ### [utils](./spec/utils.md)
 
-### [browserUtils](./spec/browserUtils.md)
+### [web](./spec/web.md)
 
-#### Why do I collect these snippets?
+<!-- #### Why do I collect these snippets?
 
 For usual snippets, we can find it on [StackOverflow](https://stackoverflow.com/questions) or other sites. The problem is, we can't be sure if the most up voted answer is reliable enough. For example,
 
@@ -43,4 +43,4 @@ So, I made this snippets and add tests to make sure:
 #### What kind of snippets I don't collect?
 
 - code like `ajax` or `getParamsFromUrl` or something with these. These codes normally have experimental API though the compatibility is not good enough. In this case, I thought we should use new API with polyfill instead of using old snippets.
-- code not too common to use.
+- code not too common to use. -->
