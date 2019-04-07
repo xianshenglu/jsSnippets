@@ -21,9 +21,12 @@
   },
   "homepage": "https://github.com/xianshenglu/jsSnippets#readme",
   "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
     "acorn": "^6.0.4",
     "eslint": "^5.10.0",
     "jest": "^23.6.0",
+    "jest-cli": "^24.7.1",
     "jsdoc-to-markdown": "^4.0.1",
     "prettier": "1.15.3",
     "webpack": "^4.20.2",
