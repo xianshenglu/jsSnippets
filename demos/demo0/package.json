@@ -1,0 +1,19 @@
+{
+  "name": "demo0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "author": "'xianshenglu' <'xianshenglu@foxmail.com'>",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "js-snippets": "latest"
+  },
+  "devDependencies": {
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  }
+}
