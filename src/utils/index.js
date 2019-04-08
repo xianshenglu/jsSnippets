@@ -244,54 +244,41 @@ export function serializeObj(obj, transformer) {
 
 /**
  * @description get common date info of a date
- * @todo need correction
- * @returns {Array}
- * @example
- * // {"year":2019,"month":4,"date":21,"hour":13,"minute":26,"second":1,"millisecond":1555824361000}
- * getDateInfo({inputDate:new Date(2019,3,21,13,26,1)})
- * @example
- * //{"year":2019,"month":3,"date":21,"hour":13,"minute":26,"second":1,"millisecond":1555824361000}
- * getDateInfo({inputDate:new Date(2019,3,21,13,26,1),correctMonth:false})
- * @example
- * // {"yyyy":"2019","MM":"04","dd":"21","hh":"13","mm":"26","ss":"01","millisecond":"1555824361000"}
- * getDateInfo({inputDate:new Date(2019,3,21,13,26,1),padStart:true,type:'string'})
+ * @author luxiansheng
  */
 export function getDateInfo({
-  inputDate = new Date(),
-  correctMonth = true,
-  padStart = false,
-  type = 'number'
+  date = new Date(),
+  isMonthFrom1 = true,
+  type = 'number',
+  padStart = false
 } = {}) {
-  var year = inputDate.getFullYear()
-  var month = inputDate.getMonth()
-  var date = inputDate.getDate()
-  var hour = inputDate.getHours()
-  var minute = inputDate.getMinutes()
-  var second = inputDate.getSeconds()
-  var millisecond = inputDate.getTime()
-  if (correctMonth) {
+  var year = date.getFullYear()
+  var month = date.getMonth()
+  var innerDate = date.getDate()
+  var hour = date.getHours()
+  var minute = date.getMinutes()
+  var second = date.getSeconds()
+  var millisecond = date.getTime()
+  if (isMonthFrom1) {
     month += 1
   }
   if (type === 'string') {
     year = String(year)
     month = String(month)
-    date = String(date)
+    innerDate = String(innerDate)
     hour = String(hour)
     minute = String(minute)
     second = String(second)
     millisecond = String(millisecond)
   }
   if (padStart) {
-    if (type !== 'string') {
-      throw new Error('padStart:true have to work with type:\'string\' ')
-    }
     month = month.padStart(2, 0)
-    date = date.padStart(2, 0)
+    innerDate = innerDate.padStart(2, 0)
     hour = hour.padStart(2, 0)
     minute = minute.padStart(2, 0)
     second = second.padStart(2, 0)
   }
-  return [[year, month, date], [hour, minute, second], millisecond]
+  return [[year, month, innerDate], [hour, minute, second], millisecond]
 }
 /**
  *
