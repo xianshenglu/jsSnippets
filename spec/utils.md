@@ -36,10 +36,10 @@
 </dd>
 <dt><a href="#serializeObj">serializeObj(obj, [transformer])</a> ⇒ <code>String</code></dt>
 <dd></dd>
-<dt><a href="#getDateInfo">getDateInfo()</a> ⇒ <code>Array</code></dt>
+<dt><a href="#getDateInfo">getDateInfo()</a></dt>
 <dd><p>get common date info of a date</p>
 </dd>
-<dt><a href="#flatFormRules">flatFormRules(rules, separator)</a></dt>
+<dt><a href="#flatFormRules">flatFormRules(rules)</a></dt>
 <dd></dd>
 </dl>
 
@@ -252,41 +252,25 @@ calcSizeWithRespectRatio({width:100,height:100},{width:50,height:200}) //{width:
 ```
 <a name="getDateInfo"></a>
 
-## getDateInfo() ⇒ <code>Array</code>
+## getDateInfo()
 get common date info of a date
 
 **Kind**: global function  
-**Todo**
-
-- [ ] need correction
-
-**Example**  
-```js
-// {"year":2019,"month":4,"date":21,"hour":13,"minute":26,"second":1,"millisecond":1555824361000}getDateInfo({inputDate:new Date(2019,3,21,13,26,1)})
-```
-**Example**  
-```js
-//{"year":2019,"month":3,"date":21,"hour":13,"minute":26,"second":1,"millisecond":1555824361000}getDateInfo({inputDate:new Date(2019,3,21,13,26,1),correctMonth:false})
-```
-**Example**  
-```js
-// {"yyyy":"2019","MM":"04","dd":"21","hh":"13","mm":"26","ss":"01","millisecond":"1555824361000"}getDateInfo({inputDate:new Date(2019,3,21,13,26,1),padStart:true,type:'string'})
-```
+**Author**: luxiansheng  
 <a name="flatFormRules"></a>
 
-## flatFormRules(rules, separator)
+## flatFormRules(rules)
 **Kind**: global function  
 
 | Param | Type |
 | --- | --- |
 | rules | <code>Object</code> | 
-| separator | <code>String</code> | 
 
 **Example**  
 ```js
-// [{"message":"field1 rule1！"},{"message":"field2 rule1！"},{"message":"field2 rule2！"}]flatFormRules({ field1: [  {  message: 'field1 rule1！' } ], field2: [ {  message: 'field2 rule1！' }, {  message: 'field2 rule2！' }]})
+// [{"message":"field1 rule1!"},{"message":"field2 rule1!"},{"message":"field2 rule2!"}]flatFormRules({ field1: [  {  message: 'field1 rule1!' } ], field2: [ {  message: 'field2 rule1!' }, {  message: 'field2 rule2!' }]})
 ```
 **Example**  
 ```js
-// [{"message":"field1 rule1！"},{"message":"field2 rule1！"}]flatFormRules({ field1: [  {  message: 'field1 rule1！' } ], field2: [ {  message: 'field2 rule1！' },]})
+// [{"message":"field1 rule1!"},{"message":"field2 rule1!"}]flatFormRules({ field1: [  {  message: 'field1 rule1!' } ], field2: [ {  message: 'field2 rule1!' }]})
 ```
