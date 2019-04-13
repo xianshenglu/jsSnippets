@@ -283,13 +283,12 @@ export function getDateInfo({
 /**
  *
  * @param {{Array}} rules
- * @param {String} separator
  * @example
- * // [{"message":"field1 rule1！"},{"message":"field2 rule1！"},{"message":"field2 rule2！"}]
- * flatFormRules({ field1: [  {  message: 'field1 rule1！' } ], field2: [ {  message: 'field2 rule1！' }, {  message: 'field2 rule2！' }]})
+ * // [{"message":"field1 rule1!"},{"message":"field2 rule1!"},{"message":"field2 rule2!"}]
+ * flatFormRules({ field1: [  {  message: 'field1 rule1!' } ], field2: [ {  message: 'field2 rule1!' }, {  message: 'field2 rule2!' }]})
  * @example
- * // [{"message":"field1 rule1！"},{"message":"field2 rule1！"}]
- * flatFormRules({ field1: [  {  message: 'field1 rule1！' } ], field2: [ {  message: 'field2 rule1！' },]})
+ * // [{"message":"field1 rule1!"},{"message":"field2 rule1!"}]
+ * flatFormRules({ field1: [  {  message: 'field1 rule1!' } ], field2: [ {  message: 'field2 rule1!' }]})
 
  */
 export function flatFormRules(rules) {
