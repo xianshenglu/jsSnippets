@@ -234,3 +234,55 @@ describe('calcSizeWithRespectRatio', () => {
     expect(result).toEqual(expectedResult)
   })
 })
+
+describe('serializeObj', () => {
+  test('normal', () => {
+    expect(utils.serializeObj({ x: 1, y: 2 })).toEqual('x=1&y=2')
+  })
+  test('undefined', () => {
+    expect(utils.serializeObj({ x: 1, y: undefined })).toEqual('x=1')
+  })
+  test('null', () => {
+    expect(utils.serializeObj({ x: 1, y: null })).toEqual('x=1')
+  })
+  test('empty string', () => {
+    expect(utils.serializeObj({ x: 1, y: '' })).toEqual('x=1')
+  })
+  test('transformer', () => {
+    expect(
+      utils.serializeObj({ x: 1, y: new Date(2019, 0, 1) }, (key, value) =>
+        value instanceof Date ? key + '=' + value.getTime() : key + '=' + value
+      )
+    ).toEqual('x=1&y=1546272000000')
+  })
+})
+
+describe('getDateInfo', () => {
+  //  todo
+})
+
+describe('flatFormRules', () => {
+  test('no rule', () => {
+    expect(utils.flatFormRules({})).toEqual([])
+  })
+  test('single rule', () => {
+    expect(
+      utils.flatFormRules({
+        field1: [{ message: 'field1 rule1!' }],
+        field2: [{ message: 'field2 rule1!' }]
+      })
+    ).toEqual([{ message: 'field1 rule1!' }, { message: 'field2 rule1!' }])
+  })
+  test('multiple rules', () => {
+    expect(
+      utils.flatFormRules({
+        field1: [{ message: 'field1 rule1!' }],
+        field2: [{ message: 'field2 rule1!' }, { message: 'field2 rule2!' }]
+      })
+    ).toEqual([
+      { message: 'field1 rule1!' },
+      { message: 'field2 rule1!' },
+      { message: 'field2 rule2!' }
+    ])
+  })
+})
