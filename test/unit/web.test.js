@@ -24,19 +24,6 @@ describe('$', () => {
     )
   })
 })
-describe('closest', () => {
-  let lastAppLink = Array.from(document.querySelectorAll('.app__link')).pop()
-  let appCont = document.querySelectorAll('.app__cont')[0]
-  let app = document.querySelectorAll('.app')[0]
-  test('(lastAppLink,\'.app\',appCont) should return null', () => {
-    let result = web.closest(lastAppLink, '.app', appCont)
-    expect(result).toBe(null)
-  })
-  test('(lastAppLink,\'.app\') should return app', () => {
-    let result = web.closest(lastAppLink, '.app')
-    expect(result).toBe(app)
-  })
-})
 describe('getElOffsetToEvent', () => {
   test('({},document.body)', () => {
     let result = web.getElOffsetToEvent(
@@ -56,7 +43,7 @@ describe('isElement', () => {
   test('(document.documentElement) should return true', () => {
     expect(web.isElement(document.documentElement)).toBe(true)
   })
-  test('(document.createElement(\'svg\')) should return true', () => {
+  test("(document.createElement('svg')) should return true", () => {
     expect(web.isElement(document.createElement('svg'))).toBe(true)
   })
   test('(document.createDocumentFragment()) should return false', () => {

@@ -1,36 +1,4 @@
 import * as utils from '../../src/utils'
-describe('sortCharacters', () => {
-  test('(sfdaffaadaafafsfed) should equal  ["e", "ss", "ddd", "aaaaaa", "ffffff"]', () => {
-    expect(utils.sortCharacters('sfdaffaadaafafsfed')).toEqual([
-      'e',
-      'ss',
-      'ddd',
-      'aaaaaa',
-      'ffffff'
-    ])
-  })
-  test('(\'\') should equal  [\'\']', () => {
-    expect(utils.sortCharacters('')).toEqual([''])
-  })
-  test('(non-String) should throw Error()', () => {
-    expect(() => {
-      utils.sortCharacters(4)
-    }).toThrow()
-  })
-})
-
-describe('getPseudorandom', () => {
-  test('([1, 2, 3, 4,5,6]) shouldn\'t equal [1, 2, 3, 4, 5, 6]', () => {
-    expect(utils.getPseudorandom([1, 2, 3, 4, 5, 6])).not.toEqual([
-      1,
-      2,
-      3,
-      4,
-      5,
-      6
-    ])
-  })
-})
 
 describe('toFixedNoLast0', () => {
   test('(12.20000, 4) should equal 12.2', () => {
@@ -72,49 +40,11 @@ describe('isObject', () => {
   test('({}) should return true', () => {
     expect(utils.isObject({})).toBe(true)
   })
-  test('(\'str\') should return false', () => {
+  test("('str') should return false", () => {
     expect(utils.isObject('str')).toBe(false)
   })
 })
-describe('isPlainObject', () => {
-  test('(false) should return false', () => {
-    expect(utils.isPlainObject(false)).toBe(false)
-  })
-  test('(new Function()) should return false', () => {
-    expect(utils.isPlainObject(new Function())).toBe(false)
-  })
-  test('({}) should return true', () => {
-    expect(utils.isPlainObject({})).toBe(true)
-  })
-})
-describe('isPlainObject', () => {
-  test('(false) should return false', () => {
-    expect(utils.isPlainObject(false)).toBe(false)
-  })
-  test('(new Function()) should return false', () => {
-    expect(utils.isPlainObject(new Function())).toBe(false)
-  })
-  test('({}) should return true', () => {
-    expect(utils.isPlainObject({})).toBe(true)
-  })
-})
-describe('replaceProperty', () => {
-  test('({a:{b:{c:1}}},{path:\'a.b.c\',data:2}) should change first param to {a:{b:{c:2}}}', () => {
-    let state = { a: { b: { c: 1 } } }
-    utils.replaceProperty(state, { path: 'a.b.c', data: 2 })
-    expect(state).toEqual({ a: { b: { c: 2 } } })
-  })
-  test('({a:{b:{c:[1,2,3]}}},{path:\'a.b.c.1\',data:1}) should change first param to {a:{b:{c:[1,1,3]}}}', () => {
-    let state = { a: { b: { c: [1, 2, 3] } } }
-    utils.replaceProperty(state, { path: 'a.b.c.1', data: 1 })
-    expect(state).toEqual({ a: { b: { c: [1, 1, 3] } } })
-  })
-  test('({a:{}},{path:\'a\',data:1}) should change first param to {a:1}', () => {
-    let state = { a: {} }
-    utils.replaceProperty(state, { path: 'a', data: 1 })
-    expect(state).toEqual({ a: 1 })
-  })
-})
+
 describe('flattenArr', () => {
   let data1 = [
     {
@@ -175,7 +105,7 @@ describe('tryJsonParse', () => {
   test('("str") should return {error:\'str\'}', () => {
     expect(utils.tryJsonParse('str')).toEqual({ error: 'str' })
   })
-  test('(null,null) should return {\'null\':null}', () => {
+  test("(null,null) should return {'null':null}", () => {
     expect(utils.tryJsonParse(null, null)).toEqual({ null: null })
   })
   test('(null,null,null) should return null', () => {
@@ -205,7 +135,7 @@ describe('calcSizeWithRespectRatio', () => {
     let expectedResult = { width: 100, height: 25, offsetX: 0, offsetY: 75 }
     expect(result).toEqual(expectedResult)
   })
-  test('({width:100,height:100},{width:50,height:200}),\'cover\') should return {width:100,height:400,offsetX:0,offsetY:-300}', () => {
+  test("({width:100,height:100},{width:50,height:200}),'cover') should return {width:100,height:400,offsetX:0,offsetY:-300}", () => {
     let result = utils.calcSizeWithRespectRatio(
       { width: 100, height: 100 },
       { width: 50, height: 200 },
@@ -219,7 +149,7 @@ describe('calcSizeWithRespectRatio', () => {
     }
     expect(result).toEqual(expectedResult)
   })
-  test('({width:100,height:100},{width:200,height:50}),\'cover\') should return {width:400,height:100,offsetX:-300,offsetY:0}', () => {
+  test("({width:100,height:100},{width:200,height:50}),'cover') should return {width:400,height:100,offsetX:-300,offsetY:0}", () => {
     let result = utils.calcSizeWithRespectRatio(
       { width: 100, height: 100 },
       { width: 200, height: 50 },
@@ -255,10 +185,6 @@ describe('serializeObj', () => {
       )
     ).toEqual('x=1&y=1546272000000')
   })
-})
-
-describe('getDateInfo', () => {
-  //  todo
 })
 
 describe('flatFormRules', () => {
