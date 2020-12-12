@@ -1,37 +1,4 @@
 /**
- * @description put the repetitive letter together
- * @param {String} str string needs to sort
- * @returns {Array}
- * @example
- * sortCharacters('sfdaffaadaafafsfed') // ["e", "ss", "ddd", "aaaaaa", "ffffff"]
- */
-export function sortCharacters(str) {
-  if (typeof str !== 'string') {
-    throw new Error('input should be String!')
-  }
-  if (str === '') {
-    return ['']
-  }
-  return str
-    .split('')
-    .sort()
-    .join('')
-    .match(/(.)\1*/gu)
-    .sort((a, b) => a.length - b.length)
-}
-
-/**
- * @description sort array randomly
- * @param {Array} arr
- * @returns {Array} array randomly sorted
- * @example
- * getPseudorandom([1,2,3,4,5,6]) //not equal [1,2,3,4,5,6]
- */
-export function getPseudorandom(arr) {
-  return arr.sort(() => Math.random() - 0.5)
-}
-
-/**
  * @description delete the last `0` when a number calls toFixed
  * @param {Number} num
  * @param {Number} precise
@@ -75,39 +42,6 @@ export function hyphenToCamel(str) {
 export function isObject(obj) {
   let type = typeof obj
   return obj !== null && (type === 'object' || type === 'function')
-}
-/**
- * @description detect if it is a narrow object
- * @param {*} obj
- * @returns {Boolean}
- * @example
- * isPlainObject(new Function()) //false
- * isPlainObject({}) //true
- */
-export function isPlainObject(obj) {
-  return (
-    Object.prototype.toString
-      .call(obj)
-      .slice(8, -1)
-      .toLocaleLowerCase() === 'object'
-  )
-}
-/**
- * @description execute state[property[.property.[...]]] = data
- * @param {Object} state
- * @param {{path:String,data:*}} param
- * @example
- * replaceProperty({a:{b:{c:1}}},{path:'a.b.c',data:2})// {a:{b:{c:2}}}
- * replaceProperty({a:{b:{c:[1,2,3]}}},{path:'a.b.c.1',data:1}) // {a:{b:{c:[1,1,3]}}}
- */
-export function replaceProperty(state, { path, data }) {
-  path = path.split('.')
-  let terminalProp = path.pop()
-  let target = path.reduce((re, key) => {
-    return re[key]
-  }, state)
-  target[terminalProp] = data
-  return state
 }
 /**
  * @description put nested children in one dimension
@@ -190,10 +124,10 @@ export function calcSizeWithRespectRatio(
     offsetY: holderHei - holderWid / targetRespectRatio
   }
   switch (mode) {
-  case 'contain':
-    return widthScaleRatio > heightScaleRatio ? calcOnHeight : calcOnWidth
-  case 'cover':
-    return widthScaleRatio > heightScaleRatio ? calcOnWidth : calcOnHeight
+    case 'contain':
+      return widthScaleRatio > heightScaleRatio ? calcOnHeight : calcOnWidth
+    case 'cover':
+      return widthScaleRatio > heightScaleRatio ? calcOnWidth : calcOnHeight
   }
 }
 
@@ -242,44 +176,6 @@ export function serializeObj(obj, transformer) {
     .replace(/&$/, '')
 }
 
-/**
- * @description get common date info of a date
- * @author luxiansheng
- */
-export function getDateInfo({
-  date = new Date(),
-  isMonthFrom1 = true,
-  type = 'number',
-  padStart = false
-} = {}) {
-  var year = date.getFullYear()
-  var month = date.getMonth()
-  var innerDate = date.getDate()
-  var hour = date.getHours()
-  var minute = date.getMinutes()
-  var second = date.getSeconds()
-  var millisecond = date.getTime()
-  if (isMonthFrom1) {
-    month += 1
-  }
-  if (type === 'string') {
-    year = String(year)
-    month = String(month)
-    innerDate = String(innerDate)
-    hour = String(hour)
-    minute = String(minute)
-    second = String(second)
-    millisecond = String(millisecond)
-  }
-  if (padStart) {
-    month = month.padStart(2, 0)
-    innerDate = innerDate.padStart(2, 0)
-    hour = hour.padStart(2, 0)
-    minute = minute.padStart(2, 0)
-    second = second.padStart(2, 0)
-  }
-  return [[year, month, innerDate], [hour, minute, second], millisecond]
-}
 /**
  *
  * @param {{Array}} rules
