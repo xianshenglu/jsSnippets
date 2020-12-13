@@ -1,6 +1,6 @@
 module.exports = {
   verbose: true,
   collectCoverage: true,
-  collectCoverageFrom: ['src/**/*.{js,jsx}'],
+  collectCoverageFrom: ['src/**/index.{js,jsx}'],
   transformIgnorePatterns: ['/node_modules/']
 }
