@@ -6,7 +6,8 @@
   "main": "src/index.js",
   "scripts": {
     "test": "jest",
-    "coverageBadge": "make-coverage-badge"
+    "coverageBadge": "make-coverage-badge",
+    "lint": "eslint --fix --ext .js src"
   },
   "repository": {
     "type": "git",
@@ -25,8 +26,9 @@
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
+    "@xianshenglu/eslint-config": "^1.0.0",
     "acorn": "^6.0.4",
-    "eslint": "^5.10.0",
+    "eslint": "^7.15.0",
     "jest": "^24.7.1",
     "jest-cli": "^24.7.1",
     "jsdoc-to-markdown": "^4.0.1",
