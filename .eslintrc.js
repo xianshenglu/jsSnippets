@@ -1,26 +1,26 @@
 module.exports = {
-  "env": {
-    "browser": true,
-    "commonjs": true,
-    "es6": true,
-    "node": true
+  env: {
+    browser: true,
+    commonjs: true,
+    es6: true,
+    node: true,
   },
-  "root": true,
-  "extends": ['@xianshenglu/eslint-config/javascript'],
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
+  root: true,
+  extends: ['@xianshenglu/eslint-config/javascript'],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
     },
-    "sourceType": "module"
+    sourceType: 'module',
   },
-  "globals": {
-    "test": false,
-    "expect": false,
-    "describe": false
+  globals: {
+    test: false,
+    expect: false,
+    describe: false,
   },
-  "rules": {
-    'array-callback-return':['off'],
-    'default-case':['off'],
-    'consistent-return':['off']
-  }
+  rules: {
+    'array-callback-return': ['off'],
+    'default-case': ['off'],
+    'consistent-return': ['off'],
+  },
 }

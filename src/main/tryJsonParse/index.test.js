@@ -1,4 +1,5 @@
 import tryJsonParse from '.'
+
 describe('tryJsonParse', () => {
   test('("str") should return {error:\'str\'}', () => {
     expect(tryJsonParse('str')).toEqual({ error: 'str' })
@@ -12,7 +13,7 @@ describe('tryJsonParse', () => {
   test('({"name":"test","value":1}) should return {"name":"test","value":1}', () => {
     expect(tryJsonParse('{"name":"test","value":1}')).toEqual({
       name: 'test',
-      value: 1
+      value: 1,
     })
   })
 })

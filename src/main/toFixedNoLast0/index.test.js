@@ -1,4 +1,5 @@
 import toFixedNoLast0 from '.'
+
 describe('toFixedNoLast0', () => {
   test('(12.20000, 4) should equal 12.2', () => {
     expect(toFixedNoLast0(Number('12.20000'), 4)).toBe('12.2')

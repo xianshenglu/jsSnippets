@@ -31,7 +31,7 @@ export {
   isObject,
   serializeObj,
   toFixedNoLast0,
-  tryJsonParse
+  tryJsonParse,
 }
 export default {
   $,
@@ -49,5 +49,5 @@ export default {
   isObject,
   serializeObj,
   toFixedNoLast0,
-  tryJsonParse
+  tryJsonParse,
 }

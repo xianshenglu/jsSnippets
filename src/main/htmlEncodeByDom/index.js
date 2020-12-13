@@ -6,7 +6,7 @@
  * htmlEncodeByDom('<script></script>') //&lt;script&gt;&lt;/script&gt;
  */
 export default function htmlEncodeByDom(text) {
-  let div = document.createElement('div')
+  const div = document.createElement('div')
   div.textContent = text
   return div.innerHTML
 }

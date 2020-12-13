@@ -3,5 +3,5 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: ['src/**/index.{js,jsx}'],
   transformIgnorePatterns: ['/node_modules/'],
-  coverageReporters: ['json-summary']
+  coverageReporters: ['json-summary'],
 }

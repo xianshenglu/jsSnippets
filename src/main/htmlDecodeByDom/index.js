@@ -6,7 +6,7 @@
  * htmlDecodeByDom('&lt;script&gt;&lt;/script&gt;') //<script></script>
  */
 export default function htmlDecodeByDom(html) {
-  let div = document.createElement('div')
+  const div = document.createElement('div')
   div.innerHTML = html
   return div.textContent
 }

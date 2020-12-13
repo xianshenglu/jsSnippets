@@ -1,4 +1,5 @@
 import serializeObj from '.'
+
 describe('serializeObj', () => {
   test('normal', () => {
     expect(serializeObj({ x: 1, y: 2 })).toEqual('x=1&y=2')
@@ -15,7 +16,7 @@ describe('serializeObj', () => {
   test('transformer', () => {
     expect(
       serializeObj({ x: 1, y: new Date(2019, 0, 1) }, (key, value) =>
-        value instanceof Date ? key + '=' + value.getTime() : key + '=' + value
+        value instanceof Date ? `${key}=${value.getTime()}` : `${key}=${value}`
       )
     ).toEqual('x=1&y=1546272000000')
   })

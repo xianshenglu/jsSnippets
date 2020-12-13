@@ -10,7 +10,7 @@ export default function flattenArr(array, childrenKey = 'children') {
   function iterator(arr, res) {
     return arr.reduce((re, obj) => {
       re.push(obj)
-      let children = obj[childrenKey]
+      const children = obj[childrenKey]
       if (Array.isArray(children)) {
         iterator(children, re)
       }

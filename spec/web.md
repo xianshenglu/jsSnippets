@@ -30,103 +30,121 @@
 <a name="$"></a>
 
 ## $(selector, [parentNode]) ⇒ <code>Array</code>
+
 imitate DOM selector`$` in jQuery
 
 **Kind**: global function  
-**Returns**: <code>Array</code> - array with target nodes  
+**Returns**: <code>Array</code> - array with target nodes
 
-| Param | Type | Default |
-| --- | --- | --- |
-| selector | <code>String</code> |  | 
-| [parentNode] | <code>Node</code> | <code>document</code> | 
+| Param        | Type                | Default               |
+| ------------ | ------------------- | --------------------- |
+| selector     | <code>String</code> |                       |
+| [parentNode] | <code>Node</code>   | <code>document</code> |
 
 <a name="closest"></a>
 
 ## closest(el, selector, destination)
+
 implement `closest` with destination
 
-**Kind**: global function  
+**Kind**: global function
 
-| Param | Type | Description |
-| --- | --- | --- |
-| el | <code>HTMLElement</code> | element to start find |
-| selector | <code>String</code> |  |
+| Param       | Type                     | Description                                |
+| ----------- | ------------------------ | ------------------------------------------ |
+| el          | <code>HTMLElement</code> | element to start find                      |
+| selector    | <code>String</code>      |                                            |
 | destination | <code>HTMLElement</code> | where to stop query when meeting this node |
 
 <a name="getElOffsetToEvent"></a>
 
 ## getElOffsetToEvent(event, el) ⇒ <code>Object</code>
+
 get element relative position offset to event
 
 **Kind**: global function  
-**Returns**: <code>Object</code> - {left:Number,right:Number,top:Number,bottom:Number}  
+**Returns**: <code>Object</code> - {left:Number,right:Number,top:Number,bottom:Number}
 
-| Param | Type |
-| --- | --- |
-| event | <code>Event</code> | 
-| el | <code>HTMLElement</code> | 
+| Param | Type                     |
+| ----- | ------------------------ |
+| event | <code>Event</code>       |
+| el    | <code>HTMLElement</code> |
 
 <a name="isElement"></a>
 
 ## isElement(obj) ⇒ <code>Boolean</code>
+
 detect if obj is an element or document
 
-**Kind**: global function  
+**Kind**: global function
 
-| Param | Type |
-| --- | --- |
-| obj | <code>\*</code> | 
+| Param | Type            |
+| ----- | --------------- |
+| obj   | <code>\*</code> |
 
-**Example**  
+**Example**
+
 ```js
-isElement(document) // trueisElement(document.documentElement) // trueisElement(document.createElement('svg')) // trueisElement(document.createDocumentFragment()) // falseisElement([]) // false
+isElement(document) // true
+isElement(document.documentElement) // true
+isElement(document.createElement('svg')) // true
+isElement(document.createDocumentFragment()) // false
+isElement([]) // false
 ```
+
 <a name="isEscape"></a>
 
 ## isEscape(event) ⇒ <code>Boolean</code>
+
 detect if user presses Escape key, just demonstrate how to handle keyCode compatibility
 
-**Kind**: global function  
+**Kind**: global function
 
-| Param | Type |
-| --- | --- |
-| event | <code>Event</code> | 
+| Param | Type               |
+| ----- | ------------------ |
+| event | <code>Event</code> |
 
 <a name="htmlEncodeByDom"></a>
 
 ## htmlEncodeByDom(text) ⇒ <code>String</code>
+
 encode user input to avoid evil script
 
 **Kind**: global function  
-**Returns**: <code>String</code> - encoded text  
+**Returns**: <code>String</code> - encoded text
 
-| Param | Type | Description |
-| --- | --- | --- |
-| text | <code>String</code> | user input value |
+| Param | Type                | Description      |
+| ----- | ------------------- | ---------------- |
+| text  | <code>String</code> | user input value |
 
-**Example**  
+**Example**
+
 ```js
 htmlEncodeByDom('<script></script>') //&lt;script&gt;&lt;/script&gt;
 ```
+
 <a name="htmlDecodeByDom"></a>
 
 ## htmlDecodeByDom(text) ⇒ <code>String</code>
+
 decode user input to show original text
 
 **Kind**: global function  
-**Returns**: <code>String</code> - decoded text  
+**Returns**: <code>String</code> - decoded text
 
-| Param | Type | Description |
-| --- | --- | --- |
-| text | <code>String</code> | user input value |
+| Param | Type                | Description      |
+| ----- | ------------------- | ---------------- |
+| text  | <code>String</code> | user input value |
 
-**Example**  
+**Example**
+
 ```js
 htmlDecodeByDom('&lt;script&gt;&lt;/script&gt;') //<script></script>
 ```
+
 <a name="isLandscape"></a>
 
 ## isLandscape() ⇒ <code>Boolean</code>
+
 detect whether the screen orientation is landscape
 
-**Kind**: global function  
+**Kind**: global function

@@ -1,4 +1,5 @@
 import flatFormRules from '.'
+
 describe('flatFormRules', () => {
   test('no rule', () => {
     expect(flatFormRules({})).toEqual([])
@@ -7,7 +8,7 @@ describe('flatFormRules', () => {
     expect(
       flatFormRules({
         field1: [{ message: 'field1 rule1!' }],
-        field2: [{ message: 'field2 rule1!' }]
+        field2: [{ message: 'field2 rule1!' }],
       })
     ).toEqual([{ message: 'field1 rule1!' }, { message: 'field2 rule1!' }])
   })
@@ -15,12 +16,12 @@ describe('flatFormRules', () => {
     expect(
       flatFormRules({
         field1: [{ message: 'field1 rule1!' }],
-        field2: [{ message: 'field2 rule1!' }, { message: 'field2 rule2!' }]
+        field2: [{ message: 'field2 rule1!' }, { message: 'field2 rule2!' }],
       })
     ).toEqual([
       { message: 'field1 rule1!' },
       { message: 'field2 rule1!' },
-      { message: 'field2 rule2!' }
+      { message: 'field2 rule2!' },
     ])
   })
 })

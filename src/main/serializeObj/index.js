@@ -25,7 +25,7 @@ export default function serializeObj(obj, transformer) {
     if (typeof value === 'undefined' || value === null || re + value === re) {
       return re
     }
-    re += key + '=' + value + '&'
+    re += `${key}=${value}&`
     return re
   }
   if (typeof transformer === 'function') {
@@ -34,11 +34,9 @@ export default function serializeObj(obj, transformer) {
       if (result === false) {
         return re
       }
-      re += result + '&'
+      re += `${result}&`
       return re
     }
   }
-  return Object.entries(obj)
-    .reduce(reducer, '')
-    .replace(/&$/, '')
+  return Object.entries(obj).reduce(reducer, '').replace(/&$/, '')
 }

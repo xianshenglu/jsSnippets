@@ -13,7 +13,8 @@ export default function isElement(obj) {
   if (typeof obj !== 'object' || obj === null) {
     return false
   }
-  let prototypeStr, prototype
+  let prototypeStr
+  let prototype
   do {
     prototype = Object.getPrototypeOf(obj)
     // to work in iframe
