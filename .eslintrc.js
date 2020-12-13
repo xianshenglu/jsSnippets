@@ -1,4 +1,4 @@
-{
+module.exports = {
   "env": {
     "browser": true,
     "commonjs": true,
@@ -6,7 +6,7 @@
     "node": true
   },
   "root": true,
-  "extends": "eslint:recommended",
+  "extends": ['@xianshenglu/eslint-config/javascript'],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -19,16 +19,8 @@
     "describe": false
   },
   "rules": {
-    "indent": ["error", 2],
-    "linebreak-style": ["off", "unix"],
-    "quotes": ["error", "single"],
-    "semi": ["error", "never"],
-    "no-multiple-empty-lines": [
-      "error",
-      {
-        "max": 1,
-        "maxEOF": 0
-      }
-    ]
+    'array-callback-return':['off'],
+    'default-case':['off'],
+    'consistent-return':['off']
   }
 }
