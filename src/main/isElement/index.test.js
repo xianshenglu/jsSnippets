@@ -1,4 +1,5 @@
 import isElement from '.'
+
 describe('isElement', () => {
   test('(document) should return true', () => {
     expect(isElement(document)).toBe(true)

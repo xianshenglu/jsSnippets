@@ -5,9 +5,9 @@ module.exports = {
       {
         targets: {
           node: 'current',
-          browsers: ['last 2 versions', '> 1%', 'not IE <= 10']
-        }
-      }
-    ]
-  ]
+          browsers: ['last 2 versions', '> 1%', 'not IE <= 10'],
+        },
+      },
+    ],
+  ],
 }

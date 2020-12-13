@@ -1,4 +1,5 @@
 import $ from '.'
+
 document.body.innerHTML = `
 <div class="app">
   <nav class="app__nav">

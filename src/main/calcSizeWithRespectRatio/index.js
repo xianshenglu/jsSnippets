@@ -13,26 +13,26 @@ export default function calcSizeWithRespectRatio(
   childRect,
   mode = 'contain'
 ) {
-  let holderWid = parentRect.width
-  let holderHei = parentRect.height
-  let targetWid = childRect.width
-  let targetHei = childRect.height
+  const holderWid = parentRect.width
+  const holderHei = parentRect.height
+  const targetWid = childRect.width
+  const targetHei = childRect.height
 
-  let widthScaleRatio = holderWid / targetWid
-  let heightScaleRatio = holderHei / targetHei
-  let targetRespectRatio = targetWid / targetHei
+  const widthScaleRatio = holderWid / targetWid
+  const heightScaleRatio = holderHei / targetHei
+  const targetRespectRatio = targetWid / targetHei
 
-  let calcOnHeight = {
+  const calcOnHeight = {
     width: holderHei * targetRespectRatio,
     height: holderHei,
     offsetX: holderWid - holderHei * targetRespectRatio,
-    offsetY: 0
+    offsetY: 0,
   }
-  let calcOnWidth = {
+  const calcOnWidth = {
     width: holderWid,
     height: holderWid / targetRespectRatio,
     offsetX: 0,
-    offsetY: holderHei - holderWid / targetRespectRatio
+    offsetY: holderHei - holderWid / targetRespectRatio,
   }
   switch (mode) {
     case 'contain':

@@ -3,22 +3,19 @@
  * @returns {Boolean}
  */
 export default function isLandscape() {
-  let screenOrientation = (
-    screen.orientation ||
-    screen.msOrientation /*win8 IE11*/ ||
-    screen.mozOrientation ||
+  const screenOrientation = (
+    window.screen.orientation ||
+    window.screen.msOrientation /* win8 IE11 */ ||
+    window.screen.mozOrientation ||
     {}
   ).type
   if (typeof screenOrientation === 'string') {
     return !!screenOrientation.toLowerCase().match(/landscape/)
-  } else if (
-    'orientation' in window &&
-    typeof window.orientation === 'number'
-  ) {
-    /*@deprecated*/
-    return Math.abs(window.orientation) === 90
-  } else {
-    /*impotent api*/
-    return window.innerWidth > window.innerHeight
   }
+  if ('orientation' in window && typeof window.orientation === 'number') {
+    /* @deprecated */
+    return Math.abs(window.orientation) === 90
+  }
+  /* impotent api */
+  return window.innerWidth > window.innerHeight
 }

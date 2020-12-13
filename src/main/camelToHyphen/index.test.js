@@ -1,4 +1,5 @@
 import camelToHyphen from '.'
+
 describe('camelToHyphen', () => {
   test('(\'camel\') should equal "camel"', () => {
     expect(camelToHyphen('camel')).toBe('camel')

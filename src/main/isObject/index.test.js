@@ -1,6 +1,8 @@
 import isObject from '.'
+
 describe('isObject', () => {
   test('(new Function()) should return true', () => {
+    // eslint-disable-next-line no-new-func
     expect(isObject(new Function())).toBe(true)
   })
   test('(new RegExp()) should return true', () => {
