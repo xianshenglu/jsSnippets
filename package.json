@@ -3,14 +3,18 @@
   "version": "1.0.0",
   "sideEffects": false,
   "description": "jsSnippets",
-  "main": "dist/index.umd.min.js",
-  "module": "dist/index.min.mjs",
+  "main": "dist/esm/runtime/index.js",
   "scripts": {
     "test": "jest",
     "coverageBadge": "make-coverage-badge",
     "lint": "eslint --fix --ext .js src",
     "prettier": "prettier --write ./**/*",
-    "build": "rollup -c ./build/rollup.prod.conf.js --environment INCLUDE_DEPS,BUILD:production",
+    "build": "npm run clean && npm run build:umd && npm run build:umd:runtime && npm run build:esm && npm run build:esm:runtime",
+    "clean": "rimraf dist",
+    "build:umd": "rollup -c ./build/rollup.umd.config.js --environment INCLUDE_DEPS,BUILD:production",
+    "build:umd:runtime": "rollup -c ./build/rollup.umd.runtime.config.js --environment INCLUDE_DEPS,BUILD:production,BABEL_ENV:runtime",
+    "build:esm": "rollup -c ./build/rollup.esm.config.js --environment INCLUDE_DEPS,BUILD:production",
+    "build:esm:runtime": "rollup -c ./build/rollup.esm.config.js --environment INCLUDE_DEPS,BUILD:production,BABEL_ENV:runtime",
     "analyze": "rollup -c ./build/rollup.prod.conf.js --environment INCLUDE_DEPS,BUILD:production,analyze"
   },
   "repository": {
@@ -29,9 +33,12 @@
   "homepage": "https://github.com/xianshenglu/jsSnippets#readme",
   "devDependencies": {
     "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-export-default-from": "^7.12.1",
+    "@babel/plugin-transform-runtime": "^7.12.10",
     "@babel/preset-env": "^7.4.3",
     "@rollup/plugin-babel": "^5.2.2",
-    "@rollup/plugin-node-resolve": "^11.0.0",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.0.1",
     "@xianshenglu/eslint-config": "^1.0.0",
     "acorn": "^6.0.4",
     "eslint": "^7.15.0",
@@ -40,9 +47,13 @@
     "jsdoc-to-markdown": "^4.0.1",
     "make-coverage-badge": "^1.2.0",
     "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
     "rollup": "^2.35.0",
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-visualizer": "^4.2.0"
+  },
+  "dependencies": {
+    "@babel/runtime-corejs3": "^7.12.5"
   }
 }

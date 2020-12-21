@@ -23,4 +23,12 @@ module.exports = {
     'default-case': ['off'],
     'consistent-return': ['off'],
   },
+  overrides: [
+    {
+      files: ['build/**'],
+      rules: {
+        'import/no-extraneous-dependencies': ['off'],
+      },
+    },
+  ],
 }
