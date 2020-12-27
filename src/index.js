@@ -10,7 +10,7 @@ import isEscape from './main/isEscape'
 import isLandscape from './main/isLandscape'
 import serializeObj from './main/serializeObj'
 import toFixedNoLast0 from './main/toFixedNoLast0'
-import tryJsonParse from './main/tryJsonParse'
+import isJson from './main/isJson'
 
 export {
   $,
@@ -25,7 +25,7 @@ export {
   isLandscape,
   serializeObj,
   toFixedNoLast0,
-  tryJsonParse,
+  isJson,
 }
 export default {
   $,
@@ -40,5 +40,5 @@ export default {
   isLandscape,
   serializeObj,
   toFixedNoLast0,
-  tryJsonParse,
+  isJson,
 }
