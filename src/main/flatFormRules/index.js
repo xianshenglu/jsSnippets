@@ -1,5 +1,5 @@
 /**
- *
+ * @module flatFormRules
  * @param {{Array}} rules
  * @example
  * // [{"message":"field1 rule1!"},{"message":"field2 rule1!"},{"message":"field2 rule2!"}]

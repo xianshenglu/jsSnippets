@@ -1,4 +1,5 @@
 /**
+ * @module htmlEncodeByDom
  * @description encode user input to avoid evil script
  * @param {String} text user input value
  * @returns {String} encoded text

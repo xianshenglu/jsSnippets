@@ -1,4 +1,5 @@
 /**
+ * @module $
  * @description imitate DOM selector`$` in jQuery
  * @param {String} selector
  * @param {Node} [parentNode=document]

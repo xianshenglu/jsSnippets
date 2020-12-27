@@ -1,4 +1,5 @@
 /**
+ * @module isElement
  * @description detect if obj is an element or document
  * @param {*} obj
  * @returns {Boolean}

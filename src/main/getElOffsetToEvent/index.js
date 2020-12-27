@@ -1,4 +1,5 @@
 /**
+ * @module getElOffsetToEvent
  * @description get element relative position offset to event
  * @param {Event} event
  * @param {HTMLElement} el
