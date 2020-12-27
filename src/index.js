@@ -2,7 +2,7 @@ import $ from './main/$'
 import calcSizeWithRespectRatio from './main/calcSizeWithRespectRatio'
 import camelToHyphen from './main/camelToHyphen'
 import flatFormRules from './main/flatFormRules'
-import flattenArr from './main/flattenArr'
+import flattenChildrenDeep from './main/flattenChildrenDeep'
 import getElOffsetToEvent from './main/getElOffsetToEvent'
 import hyphenToCamel from './main/hyphenToCamel'
 import isElement from './main/isElement'
@@ -17,7 +17,7 @@ export {
   calcSizeWithRespectRatio,
   camelToHyphen,
   flatFormRules,
-  flattenArr,
+  flattenChildrenDeep,
   getElOffsetToEvent,
   hyphenToCamel,
   isElement,
@@ -32,7 +32,7 @@ export default {
   calcSizeWithRespectRatio,
   camelToHyphen,
   flatFormRules,
-  flattenArr,
+  flattenChildrenDeep,
   getElOffsetToEvent,
   hyphenToCamel,
   isElement,
