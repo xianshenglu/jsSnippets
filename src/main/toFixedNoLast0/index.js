@@ -1,4 +1,5 @@
 /**
+ * @module toFixedNoLast0
  * @description delete the last `0` when a number calls toFixed
  * @param {Number} num
  * @param {Number} precise

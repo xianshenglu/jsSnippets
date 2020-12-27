@@ -1,4 +1,5 @@
 /**
+ * @module tryJsonParse
  * @description add error handler when using JSON.parse()
  * @param {*} jsonText
  * @param {string} [errorPropertyName='error']

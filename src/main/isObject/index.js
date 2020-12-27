@@ -1,4 +1,5 @@
 /**
+ * @module isObject
  * @description detect if it is a generalized object
  * @param {*} obj
  * @returns {Boolean}

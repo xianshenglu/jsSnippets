@@ -25,7 +25,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['build/**'],
+      files: ['build/**', '*.js'],
       rules: {
         'import/no-extraneous-dependencies': ['off'],
       },

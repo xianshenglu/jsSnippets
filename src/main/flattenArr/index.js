@@ -1,4 +1,5 @@
 /**
+ * @module flattenArr
  * @description put nested children in one dimension
  * @param {Array} array
  * @param {string} [children='children'] key name of children

@@ -15,7 +15,8 @@
     "build:umd:runtime": "rollup -c ./build/rollup.umd.runtime.config.js --environment INCLUDE_DEPS,BUILD:production,BABEL_ENV:runtime",
     "build:esm": "rollup -c ./build/rollup.esm.config.js --environment INCLUDE_DEPS,BUILD:production",
     "build:esm:runtime": "rollup -c ./build/rollup.esm.config.js --environment INCLUDE_DEPS,BUILD:production,BABEL_ENV:runtime",
-    "analyze": "rollup -c ./build/rollup.prod.conf.js --environment INCLUDE_DEPS,BUILD:production,analyze"
+    "analyze": "rollup -c ./build/rollup.prod.conf.js --environment INCLUDE_DEPS,BUILD:production,analyze",
+    "docs": "node jsdoc-to-md.js"
   },
   "repository": {
     "type": "git",

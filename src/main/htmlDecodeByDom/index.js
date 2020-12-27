@@ -1,4 +1,5 @@
 /**
+ * @module htmlDecodeByDom
  * @description decode user input to show original text
  * @param {String} text user input value
  * @returns {String} decoded text
