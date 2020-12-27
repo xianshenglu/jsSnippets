@@ -15,9 +15,9 @@ describe('serializeObj', () => {
   })
   test('transformer', () => {
     expect(
-      serializeObj({ x: 1, y: new Date(2019, 0, 1) }, (key, value) =>
-        value instanceof Date ? `${key}=${value.getTime()}` : `${key}=${value}`
+      serializeObj({ x: 1, y: [1, 2, 3] }, (key, value) =>
+        value instanceof Array ? `${key}=${value.join('|')}` : `${key}=${value}`
       )
-    ).toEqual('x=1&y=1546272000000')
+    ).toEqual('x=1&y=1|2|3')
   })
 })
