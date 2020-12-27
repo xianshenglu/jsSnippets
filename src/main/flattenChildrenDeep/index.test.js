@@ -1,6 +1,6 @@
-import flattenArr from '.'
+import flattenChildrenDeep from '.'
 
-describe('flattenArr', () => {
+describe('flattenChildrenDeep', () => {
   const data1 = [
     {
       value: '1',
@@ -26,7 +26,7 @@ describe('flattenArr', () => {
   test(`(${JSON.stringify(data1)}) should return ${JSON.stringify(
     result1
   )}`, () => {
-    expect(flattenArr(data1)).toEqual(result1)
+    expect(flattenChildrenDeep(data1)).toEqual(result1)
   })
   const data2 = [
     {
@@ -53,6 +53,6 @@ describe('flattenArr', () => {
   test(`(${JSON.stringify(data2)}) should return ${JSON.stringify(
     result2
   )}`, () => {
-    expect(flattenArr(data2, 'child')).toEqual(result2)
+    expect(flattenChildrenDeep(data2, 'child')).toEqual(result2)
   })
 })
