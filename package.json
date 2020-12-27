@@ -16,7 +16,8 @@
     "build:esm": "rollup -c ./build/rollup.esm.config.js --environment INCLUDE_DEPS,BUILD:production",
     "build:esm:runtime": "rollup -c ./build/rollup.esm.config.js --environment INCLUDE_DEPS,BUILD:production,BABEL_ENV:runtime",
     "analyze": "rollup -c ./build/rollup.prod.conf.js --environment INCLUDE_DEPS,BUILD:production,analyze",
-    "docs": "node jsdoc-to-md.js"
+    "docs": "node jsdoc-to-md.js",
+    "release": "release-it"
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,7 @@
     "@babel/plugin-proposal-export-default-from": "^7.12.1",
     "@babel/plugin-transform-runtime": "^7.12.10",
     "@babel/preset-env": "^7.4.3",
+    "@release-it/conventional-changelog": "^2.0.0",
     "@rollup/plugin-babel": "^5.2.2",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.1",
@@ -48,6 +50,7 @@
     "jsdoc-to-markdown": "^4.0.1",
     "make-coverage-badge": "^1.2.0",
     "prettier": "^2.2.1",
+    "release-it": "^14.2.2",
     "rimraf": "^3.0.2",
     "rollup": "^2.35.0",
     "rollup-plugin-delete": "^2.0.0",
