@@ -5,12 +5,8 @@ module.exports = {
     commitMessage: 'chore: release v${version}',
   },
   hooks: {
-    'before:init': [
-      'npm run lint',
-      'npm run test',
-      'npm run build',
-      'npm run docs',
-    ],
+    'before:init': ['npm run lint', 'npm run test'],
+    'after:bump': ['npm run build', 'npm run docs', 'git add .'],
     'after:git:release': 'echo After git push, before github release',
     'after:release':
       'echo Successfully released ${name} v${version} to ${repo.repository}.',
