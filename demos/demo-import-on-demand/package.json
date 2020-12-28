@@ -12,8 +12,8 @@
   "author": "'xianshenglu' <'xianshenglu@foxmail.com'>",
   "license": "UNLICENSED",
   "dependencies": {
-    "core-js": "^3.8.1",
-    "js-snippets": "file:../../js-snippets-1.0.0.tgz"
+    "@xianshenglu/js-snippets": "file:../../xianshenglu-js-snippets-1.0.0.tgz",
+    "core-js": "^3.8.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
