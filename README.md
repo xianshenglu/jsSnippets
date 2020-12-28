@@ -1,12 +1,8 @@
 # jsSnippets
 
-![](./coverage/badge.svg) ![](https://img.shields.io/badge/status-maintaining-green.svg)
+![](https://img.shields.io/badge/status-maintaining-4c1.svg) ![Build](https://github.com/xianshenglu/jsSnippets/workflows/Build/badge.svg) ![](./coverage/badge.svg)
 
-### Doc
-
-### [utils](./spec/utils.md)
-
-### [web](./spec/web.md)
+### [Docs](./spec/index.md)
 
 <!-- #### Why do I collect these snippets?
 
