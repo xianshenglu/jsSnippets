@@ -1,4 +1,5 @@
 /**
+ * @module isLandscape
  * @description detect whether the screen orientation is landscape
  * @returns {Boolean}
  */

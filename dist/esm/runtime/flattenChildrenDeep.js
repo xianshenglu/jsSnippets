@@ -2,14 +2,15 @@ import _Array$isArray from '@babel/runtime-corejs3/core-js-stable/array/is-array
 import _reduceInstanceProperty from '@babel/runtime-corejs3/core-js-stable/instance/reduce';
 
 /**
+ * @module flattenChildrenDeep
  * @description put nested children in one dimension
  * @param {Array} array
  * @param {string} [children='children'] key name of children
  * @returns {Array}
  * @example
- * flattenArr([{value:'1',children:[{value:'1.1',children:[{value:'1.1.1'}]},{value:'1.2',children:[{value:'1.2.1',children:[]}]}]}]) //[{value:'1',...},{value:'1.1',...},{value:'1.1.1',...},{value:'1.2',...},{value:'1.2.1',...}]
+ * flattenChildrenDeep([{value:'1',children:[{value:'1.1',children:[{value:'1.1.1'}]},{value:'1.2',children:[{value:'1.2.1',children:[]}]}]}]) //[{value:'1',...},{value:'1.1',...},{value:'1.1.1',...},{value:'1.2',...},{value:'1.2.1',...}]
  */
-function flattenArr(array, childrenKey = 'children') {
+function flattenChildrenDeep(array, childrenKey = 'children') {
   function iterator(arr, res) {
     return _reduceInstanceProperty(arr).call(arr, (re, obj) => {
       re.push(obj);
@@ -26,4 +27,4 @@ function flattenArr(array, childrenKey = 'children') {
   return iterator(array);
 }
 
-export default flattenArr;
+export default flattenChildrenDeep;

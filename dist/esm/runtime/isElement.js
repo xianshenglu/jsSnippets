@@ -1,6 +1,7 @@
 import _Object$getPrototypeOf from '@babel/runtime-corejs3/core-js-stable/object/get-prototype-of';
 
 /**
+ * @module isElement
  * @description detect if obj is an element or document
  * @param {*} obj
  * @returns {Boolean}

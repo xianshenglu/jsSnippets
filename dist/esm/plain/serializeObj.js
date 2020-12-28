@@ -1,4 +1,5 @@
 /**
+ * @module serializeObj
  * @author luxiansheng
  * @param { Object } obj
  * @param { Function } [transformer]

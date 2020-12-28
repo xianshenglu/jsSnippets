@@ -2,6 +2,7 @@ import _reduceInstanceProperty from '@babel/runtime-corejs3/core-js-stable/insta
 import _Object$entries from '@babel/runtime-corejs3/core-js-stable/object/entries';
 
 /**
+ * @module serializeObj
  * @author luxiansheng
  * @param { Object } obj
  * @param { Function } [transformer]

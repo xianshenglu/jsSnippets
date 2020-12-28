@@ -963,6 +963,7 @@
   var from$2 = from$1;
 
   /**
+   * @module $
    * @description imitate DOM selector`$` in jQuery
    * @param {String} selector
    * @param {Node} [parentNode=document]
@@ -973,6 +974,7 @@
   }
 
   /**
+   * @module calcSizeWithRespectRatio
    * @description calculate the max size child can be without change respect ratio
    * @param {{width:Number,height:Number}} parentRect parent container size
    * @param {{width:Number,height:Number}} childRect child container size
@@ -1013,6 +1015,7 @@
   }
 
   /**
+   * @module camelToHyphen
    * @description camel to hyphen
    * @param {String} str
    * @returns {String}
@@ -1152,7 +1155,7 @@
   var concat$2 = concat$1;
 
   /**
-   *
+   * @module flatFormRules
    * @param {{Array}} rules
    * @example
    * // [{"message":"field1 rule1!"},{"message":"field2 rule1!"},{"message":"field2 rule2!"}]
@@ -1237,14 +1240,15 @@
   var reduce$2 = reduce$1;
 
   /**
+   * @module flattenChildrenDeep
    * @description put nested children in one dimension
    * @param {Array} array
    * @param {string} [children='children'] key name of children
    * @returns {Array}
    * @example
-   * flattenArr([{value:'1',children:[{value:'1.1',children:[{value:'1.1.1'}]},{value:'1.2',children:[{value:'1.2.1',children:[]}]}]}]) //[{value:'1',...},{value:'1.1',...},{value:'1.1.1',...},{value:'1.2',...},{value:'1.2.1',...}]
+   * flattenChildrenDeep([{value:'1',children:[{value:'1.1',children:[{value:'1.1.1'}]},{value:'1.2',children:[{value:'1.2.1',children:[]}]}]}]) //[{value:'1',...},{value:'1.1',...},{value:'1.1.1',...},{value:'1.2',...},{value:'1.2.1',...}]
    */
-  function flattenArr(array, childrenKey = 'children') {
+  function flattenChildrenDeep(array, childrenKey = 'children') {
     function iterator(arr, res) {
       return reduce$2(arr).call(arr, (re, obj) => {
         re.push(obj);
@@ -1262,6 +1266,7 @@
   }
 
   /**
+   * @module getElOffsetToEvent
    * @description get element relative position offset to event
    * @param {Event} event
    * @param {HTMLElement} el
@@ -1278,32 +1283,7 @@
   }
 
   /**
-   * @description decode user input to show original text
-   * @param {String} text user input value
-   * @returns {String} decoded text
-   * @example
-   * htmlDecodeByDom('&lt;script&gt;&lt;/script&gt;') //<script></script>
-   */
-  function htmlDecodeByDom(html) {
-    const div = document.createElement('div');
-    div.innerHTML = html;
-    return div.textContent;
-  }
-
-  /**
-   * @description encode user input to avoid evil script
-   * @param {String} text user input value
-   * @returns {String} encoded text
-   * @example
-   * htmlEncodeByDom('<script></script>') //&lt;script&gt;&lt;/script&gt;
-   */
-  function htmlEncodeByDom(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-  }
-
-  /**
+   * @module hyphenToCamel
    * @description hyphen to camel
    * @param {String} str
    * @returns {String}
@@ -1333,6 +1313,7 @@
   var getPrototypeOf$2 = getPrototypeOf$1;
 
   /**
+   * @module isElement
    * @description detect if obj is an element or document
    * @param {*} obj
    * @returns {Boolean}
@@ -1367,6 +1348,7 @@
   }
 
   /**
+   * @module isEscape
    * @description detect if user presses Escape key, just demonstrate how to handle keyCode compatibility
    * @param {Event} event
    * @returns {Boolean}
@@ -1377,6 +1359,7 @@
   }
 
   /**
+   * @module isLandscape
    * @description detect whether the screen orientation is landscape
    * @returns {Boolean}
    */
@@ -1399,19 +1382,6 @@
     return window.innerWidth > window.innerHeight;
   }
 
-  /**
-   * @description detect if it is a generalized object
-   * @param {*} obj
-   * @returns {Boolean}
-   * @example
-   * isObject(new RegExp()) //true
-   * isObject('') //false
-   */
-  function isObject$1(obj) {
-    const type = typeof obj;
-    return obj !== null && (type === 'object' || type === 'function');
-  }
-
   // `Object.entries` method
   // https://tc39.github.io/ecma262/#sec-object.entries
   _export({ target: 'Object', stat: true }, {
@@ -1427,6 +1397,7 @@
   var entries$2 = entries$1;
 
   /**
+   * @module serializeObj
    * @author luxiansheng
    * @param { Object } obj
    * @param { Function } [transformer]
@@ -1476,6 +1447,7 @@
   }
 
   /**
+   * @module toFixedNoLast0
    * @description delete the last `0` when a number calls toFixed
    * @param {Number} num
    * @param {Number} precise
@@ -1488,26 +1460,21 @@
   }
 
   /**
-   * @description add error handler when using JSON.parse()
-   * @param {*} jsonText
-   * @param {string} [errorPropertyName='error']
-   * @param {*} [valueForNull={ [errorPropertyName]: null }]
-   * @returns {Object} new Object, with the original text saved in errorPropertyName
+   * @module isJson
+   * @description detect whether the string can be called with JSON.parse
+   * @param {string} jsonText
+   * @returns {boolean}
    * @example
-   * tryJsonParse('str') //{error:'str'}
-   * tryJsonParse(null,null) //{'null':null}
-   * tryJsonParse(null,null,null) //null
-   * tryJsonParse('{"name":"test","value":1}') //{name: "test", value: 1}
+   * isJson('str') //false
+   *
+   * isJson('{"name":"test","value":1}') //true
    */
-  function tryJsonParse(jsonText, errorPropertyName = 'error', valueForNull = {
-    [errorPropertyName]: null
-  }) {
+  function isJson(str) {
     try {
-      return JSON.parse(jsonText) || valueForNull;
+      JSON.parse(str);
+      return true;
     } catch (e) {
-      return {
-        [errorPropertyName]: jsonText
-      };
+      return false;
     }
   }
 
@@ -1516,18 +1483,15 @@
     calcSizeWithRespectRatio,
     camelToHyphen,
     flatFormRules,
-    flattenArr,
+    flattenChildrenDeep,
     getElOffsetToEvent,
-    htmlDecodeByDom,
-    htmlEncodeByDom,
     hyphenToCamel,
     isElement,
     isEscape,
     isLandscape,
-    isObject: isObject$1,
     serializeObj,
     toFixedNoLast0,
-    tryJsonParse
+    isJson
   };
 
   exports.$ = $;
@@ -1535,18 +1499,15 @@
   exports.camelToHyphen = camelToHyphen;
   exports.default = index;
   exports.flatFormRules = flatFormRules;
-  exports.flattenArr = flattenArr;
+  exports.flattenChildrenDeep = flattenChildrenDeep;
   exports.getElOffsetToEvent = getElOffsetToEvent;
-  exports.htmlDecodeByDom = htmlDecodeByDom;
-  exports.htmlEncodeByDom = htmlEncodeByDom;
   exports.hyphenToCamel = hyphenToCamel;
   exports.isElement = isElement;
   exports.isEscape = isEscape;
+  exports.isJson = isJson;
   exports.isLandscape = isLandscape;
-  exports.isObject = isObject$1;
   exports.serializeObj = serializeObj;
   exports.toFixedNoLast0 = toFixedNoLast0;
-  exports.tryJsonParse = tryJsonParse;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 

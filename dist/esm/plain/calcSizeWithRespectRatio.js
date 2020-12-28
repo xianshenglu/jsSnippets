@@ -1,4 +1,5 @@
 /**
+ * @module calcSizeWithRespectRatio
  * @description calculate the max size child can be without change respect ratio
  * @param {{width:Number,height:Number}} parentRect parent container size
  * @param {{width:Number,height:Number}} childRect child container size

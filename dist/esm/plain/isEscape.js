@@ -1,4 +1,5 @@
 /**
+ * @module isEscape
  * @description detect if user presses Escape key, just demonstrate how to handle keyCode compatibility
  * @param {Event} event
  * @returns {Boolean}

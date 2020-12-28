@@ -3,51 +3,42 @@ import $ from './$.js'
 import calcSizeWithRespectRatio from './calcSizeWithRespectRatio.js'
 import camelToHyphen from './camelToHyphen.js'
 import flatFormRules from './flatFormRules.js'
-import flattenArr from './flattenArr.js'
+import flattenChildrenDeep from './flattenChildrenDeep.js'
 import getElOffsetToEvent from './getElOffsetToEvent.js'
-import htmlDecodeByDom from './htmlDecodeByDom.js'
-import htmlEncodeByDom from './htmlEncodeByDom.js'
 import hyphenToCamel from './hyphenToCamel.js'
 import isElement from './isElement.js'
 import isEscape from './isEscape.js'
+import isJson from './isJson.js'
 import isLandscape from './isLandscape.js'
-import isObject from './isObject.js'
 import serializeObj from './serializeObj.js'
 import toFixedNoLast0 from './toFixedNoLast0.js'
-import tryJsonParse from './tryJsonParse.js'
 export {
  $,
 calcSizeWithRespectRatio,
 camelToHyphen,
 flatFormRules,
-flattenArr,
+flattenChildrenDeep,
 getElOffsetToEvent,
-htmlDecodeByDom,
-htmlEncodeByDom,
 hyphenToCamel,
 isElement,
 isEscape,
+isJson,
 isLandscape,
-isObject,
 serializeObj,
-toFixedNoLast0,
-tryJsonParse
+toFixedNoLast0
  }
 export default {
  $,
 calcSizeWithRespectRatio,
 camelToHyphen,
 flatFormRules,
-flattenArr,
+flattenChildrenDeep,
 getElOffsetToEvent,
-htmlDecodeByDom,
-htmlEncodeByDom,
 hyphenToCamel,
 isElement,
 isEscape,
+isJson,
 isLandscape,
-isObject,
 serializeObj,
-toFixedNoLast0,
-tryJsonParse
+toFixedNoLast0
  }

@@ -1,6 +1,7 @@
 import _Array$from from '@babel/runtime-corejs3/core-js-stable/array/from';
 
 /**
+ * @module $
  * @description imitate DOM selector`$` in jQuery
  * @param {String} selector
  * @param {Node} [parentNode=document]

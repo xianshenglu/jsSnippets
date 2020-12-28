@@ -2,7 +2,7 @@ import _Object$values from '@babel/runtime-corejs3/core-js-stable/object/values'
 import _concatInstanceProperty from '@babel/runtime-corejs3/core-js-stable/instance/concat';
 
 /**
- *
+ * @module flatFormRules
  * @param {{Array}} rules
  * @example
  * // [{"message":"field1 rule1!"},{"message":"field2 rule1!"},{"message":"field2 rule2!"}]

@@ -1,4 +1,5 @@
 /**
+ * @module hyphenToCamel
  * @description hyphen to camel
  * @param {String} str
  * @returns {String}
